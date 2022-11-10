@@ -11,6 +11,7 @@ public class Main {
         int numberOfPlayer;
         boolean validPack = false;
         Optional<int[]> pack = Optional.empty();
+        ArrayList<Player> players = new ArrayList<Player>();
 
         System.out.println("Enter number of players:");
         numberOfPlayer = Input.nextInt();
@@ -25,7 +26,34 @@ public class Main {
             }
         }
 
-        System.out.println(pack.toString());
+        // Initialise players and their decks
+        for (int i=0;i<numberOfPlayer;i++){
+            players.add(new Player(i));
+            Deck.decks.put(i,new Deck(i));
+        }
+
+        while (pack.get().length >= numberOfPlayer*2) {
+            for (int i=0; i<numberOfPlayer;i++) {
+                //Fill player's hand
+                players.get(i).cards.add(new Card(pack.get()[0]));
+                pack = Optional.of(removeFirstElement(pack.get()));
+
+                //Fill each player's deck
+                Deck.decks.get(i).dealCard(new Card(pack.get()[0]));
+                pack = Optional.of(removeFirstElement(pack.get()));
+            }
+        }
+        for (Player player : players) {
+            System.out.println("PLAYER " + (player.id+1) + ": Hand - " + player.cards + ", Deck - " + Deck.decks.get(player.id).cards);
+        }
+    }
+
+    public static int[] removeFirstElement(int[] arr) {
+        int newArr[] = new int[arr.length - 1];
+        for (int i = 1; i < arr.length; i++) {
+            newArr[i-1] = arr[i];
+        }
+        return newArr;
     }
 
     static Optional<int[]> readAndValidatePack(int entries) throws FileNotFoundException {
@@ -93,9 +121,8 @@ public class Main {
 
         PrintWriter output = new PrintWriter("src/pack.txt");
 
-        for (int i = 0; i < pack.size(); i++) {
-            System.out.println(i);
-            output.println(pack.get(i));
+        for (Integer integer : pack) {
+            output.println(integer);
         }
 
         output.close();

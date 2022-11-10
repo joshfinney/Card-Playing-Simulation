@@ -1,9 +1,11 @@
 import java.util.ArrayList;
 import java.util.Dictionary;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Deck extends AbstractCardOwner {
     int id;
-    static Dictionary<Integer, Deck> decks;
+    static Map<Integer, Deck> decks = new HashMap<>();
     static int deckCount=0;
     ArrayList<Card> contents;
 
@@ -18,7 +20,7 @@ public class Deck extends AbstractCardOwner {
     }
 
     static Card draw(int PlayerId){
-        int target = PlayerId-1;//SPECIFICATION: PlayerIds start from 1, while deckIds start from 0
+        int target = PlayerId-1; //SPECIFICATION: PlayerIds start from 1, while deckIds start from 0
         return decks.get(target).drawRandomCard();
     }
 
@@ -26,7 +28,4 @@ public class Deck extends AbstractCardOwner {
         int target = (playerId>deckCount)?playerId:0;
         decks.get(target).dealCard(dealtCard);
     }
-
-
-
 }

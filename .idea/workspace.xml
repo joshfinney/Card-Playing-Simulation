@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="d686b59d-4665-4a56-9940-ca2533949e20" name="Changes" comment="Implemented Object Oriented Framework and Class Foundations&#10;Added Todo items">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pack.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/pack.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,16 +34,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-  </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -50,6 +56,8 @@
       <updated>1667831028843</updated>
       <workItem from="1667831032350" duration="51000" />
       <workItem from="1667864698473" duration="31000" />
+      <workItem from="1668015238009" duration="1745000" />
+      <workItem from="1668090122180" duration="8581000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented Object Oriented Framework and Class Foundations&#10;Added Todo items">
       <created>1667932049890</created>
@@ -69,9 +77,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -80,39 +86,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Implemented Object Oriented Framework and Class Foundations&#10;Added Todo items" />
     <option name="LAST_COMMIT_MESSAGE" value="Implemented Object Oriented Framework and Class Foundations&#10;Added Todo items" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="320" y="112" key="#Project_Structure" timestamp="1667928518219">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="320" y="112" key="#Project_Structure/0.0.1440.900@0.0.1440.900" timestamp="1667928518219" />
-    <state x="184" y="109" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1667928763093">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="184" y="109" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1667928763093" />
-    <state x="442" y="257" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1667928002091">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="442" y="257" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1667928002091" />
-    <state x="570" y="343" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1667928239161">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="570" y="343" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1440.900@0.0.1440.900" timestamp="1667928239161" />
-    <state x="467" y="310" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1667928473804">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="467" y="310" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1440.900@0.0.1440.900" timestamp="1667928473804" />
-    <state x="300" y="49" key="CommitChangelistDialog2" timestamp="1668015147353">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="300" y="49" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1668015147353" />
-    <state x="229" y="25" width="1024" height="818" key="SettingsEditor" timestamp="1668014978522">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="229" y="25" width="1024" height="818" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1668014978522" />
-    <state x="397" y="279" key="com.intellij.ide.util.TipDialog" timestamp="1668014607169">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="397" y="279" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1668014607169" />
   </component>
 </project>
