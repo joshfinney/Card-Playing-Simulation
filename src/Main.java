@@ -12,7 +12,6 @@ public class Main {
         int numberOfPlayer;
         boolean validPack = false;
         ArrayList<Card> pack = new ArrayList<>();
-        ArrayList<Player> players = new ArrayList<Player>();
 
         System.out.println("Enter number of players:");
         numberOfPlayer = Input.nextInt();
@@ -21,15 +20,19 @@ public class Main {
         generatePack(numberOfPlayer);
 
         while (!validPack) {
-            var tempPack = readAndValidatePack(numberOfPlayer*8);
+            var tempPack = getPack(numberOfPlayer * 8);
             if (tempPack.isPresent()) {
                 validPack = true;
                 pack = Arrays
-                        .stream(tempPack.orElse(new int[numberOfPlayer*8]))
+                        .stream(tempPack.orElse(new int[numberOfPlayer * 8]))
                         .mapToObj(Card::new)
                         .collect(Collectors.toCollection(ArrayList::new));
             }
         }
+        mainGame(numberOfPlayer, pack);
+    }
+    static void mainGame(int numberOfPlayer, ArrayList<Card> pack){
+        ArrayList<Player> players = new ArrayList<Player>();
 
         // Initialise players and their decks
             for (int i=0;i<numberOfPlayer;i++){
@@ -55,20 +58,14 @@ public class Main {
         }
     }
 
-    public static int[] removeFirstElement(int[] arr) {
-        int newArr[] = new int[arr.length - 1];
-        for (int i = 1; i < arr.length; i++) {
-            newArr[i-1] = arr[i];
-        }
-        return newArr;
-    }
-
-    static Optional<int[]> readAndValidatePack(int entries) throws FileNotFoundException {
-        int[] pack = new int[entries];
-        int lines = 0;
+    static Optional<int[]> getPack(int entries) throws FileNotFoundException{
         System.out.println("Enter pack location:");
         String location = Input.nextLine();
-
+        return readAndValidatePack(location, entries);
+    }
+    static Optional<int[]> readAndValidatePack(String location, int entries) throws FileNotFoundException{
+        int[] pack = new int[entries];
+        int lines = 0;
         File file = new File("src/" + location);
         Scanner input = new Scanner(file);
 
