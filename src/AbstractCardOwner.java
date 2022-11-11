@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class AbstractCardOwner {
-    ArrayList<Card> cards;
+    protected ArrayList<Card> cards;
     AbstractCardOwner(){
         cards = new ArrayList<>();
     }

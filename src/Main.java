@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
     static Scanner Input = new Scanner(System.in);
@@ -10,7 +11,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         int numberOfPlayer;
         boolean validPack = false;
-        Optional<int[]> pack = Optional.empty();
+        ArrayList<Card> pack = new ArrayList<>();
         ArrayList<Player> players = new ArrayList<Player>();
 
         System.out.println("Enter number of players:");
@@ -20,9 +21,13 @@ public class Main {
         generatePack(numberOfPlayer);
 
         while (!validPack) {
-            pack = readAndValidatePack(numberOfPlayer * 8);
-            if (pack.isPresent()) {
+            var tempPack = readAndValidatePack(numberOfPlayer*8);
+            if (tempPack.isPresent()) {
                 validPack = true;
+                pack = Arrays
+                        .stream(tempPack.orElse(new int[numberOfPlayer*8]))
+                        .mapToObj(Card::new)
+                        .collect(Collectors.toCollection(ArrayList::new));
             }
         }
 
@@ -32,16 +37,13 @@ public class Main {
             Deck.decks.put(i,new Deck(i));
         }
 
-        while (pack.get().length >= numberOfPlayer*2) {
-            for (int i=0; i<numberOfPlayer;i++) {
-                //Fill player's hand
-                players.get(i).cards.add(new Card(pack.get()[0]));
-                pack = Optional.of(removeFirstElement(pack.get()));
 
-                //Fill each player's deck
-                Deck.decks.get(i).dealCard(new Card(pack.get()[0]));
-                pack = Optional.of(removeFirstElement(pack.get()));
-            }
+        for (int i=0; i<numberOfPlayer;i++) {
+            //Fill player's hand
+            players.get(i).addCard(pack.remove(0));
+
+            //Fill each player's deck
+            Deck.decks.get(i).dealCard(pack.remove(0));
         }
         for (Player player : players) {
             System.out.println("PLAYER " + (player.id+1) + ": Hand - " + player.cards + ", Deck - " + Deck.decks.get(player.id).cards);

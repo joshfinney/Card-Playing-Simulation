@@ -7,7 +7,6 @@ public class Deck extends AbstractCardOwner {
     int id;
     static Map<Integer, Deck> decks = new HashMap<>();
     static int deckCount=0;
-    ArrayList<Card> contents;
 
     Deck(int deckId){
         id = deckId;
