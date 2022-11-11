@@ -32,21 +32,22 @@ public class Main {
         }
 
         // Initialise players and their decks
-        for (int i=0;i<numberOfPlayer;i++){
+            for (int i=0;i<numberOfPlayer;i++){
             players.add(new Player(i));
             Deck.decks.put(i,new Deck(i));
         }
 
+        for (int i=0; i<4; i++){
+            for (int j=0; j<numberOfPlayer;j++) {
 
-        for (int i=0; i<numberOfPlayer;i++) {
-            //Fill player's hand
-            players.get(i).addCard(pack.remove(0));
-
-            //Fill each player's deck
-            Deck.decks.get(i).dealCard(pack.remove(0));
+                //Fill player's hand
+                players.get(j).addCard(pack.remove(0));
+                //Fill each player's deck
+                Deck.decks.get(j).dealCard(pack.remove(0));
+            }
         }
         for (Player player : players) {
-            System.out.println("PLAYER " + (player.id+1) + ": Hand - " + player.cards + ", Deck - " + Deck.decks.get(player.id).cards);
+            System.out.println("PLAYER " + (player.id+1) + ": Hand - " + player.readContents() + ", Deck - " + Deck.decks.get(player.id).readContents());
         }
     }
 

@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,12 +17,11 @@ public class Deck extends AbstractCardOwner {
     }
 
     static Card draw(int PlayerId){
-        int target = PlayerId-1; //SPECIFICATION: PlayerIds start from 1, while deckIds start from 0
-        return decks.get(target).drawRandomCard();
+        return decks.get(PlayerId).drawRandomCard();
     }
 
     static void pile(int playerId, Card dealtCard){
-        int target = (playerId>deckCount)?playerId:0;
+        int target = (playerId>deckCount)?playerId:1;
         decks.get(target).dealCard(dealtCard);
     }
 }

@@ -21,6 +21,7 @@ class Player extends AbstractCardOwner {
         Deck.pile(id, preferredDiscard());
     }
 
+
     private Card preferredDiscard(){
         //todo weighted preference by Id, substituting truly random draw
         return drawRandomCard();
