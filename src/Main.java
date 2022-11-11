@@ -49,6 +49,10 @@ public class Main {
         for (Player player : players) {
             System.out.println("PLAYER " + (player.id+1) + ": Hand - " + player.readContents() + ", Deck - " + Deck.decks.get(player.id).readContents());
         }
+
+        for (Player player : players) {
+            player.run();
+        }
     }
 
     public static int[] removeFirstElement(int[] arr) {

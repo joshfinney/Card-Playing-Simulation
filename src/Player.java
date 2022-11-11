@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.lang.Integer;
 import java.util.Map;
 
-class Player extends AbstractCardOwner {
+class Player extends AbstractCardOwner implements Runnable {
     int id;
 
     Player(int playerId){
@@ -33,18 +33,24 @@ class Player extends AbstractCardOwner {
             victoryCounter.put(c.value, 0);
         }
         for (Card c: cards) {
-            int duplicateCount = victoryCounter.get(c.value)+1;
-            if (duplicateCount>3){
+            int duplicateCount = victoryCounter.get(c.value);
+            duplicateCount++;
+            victoryCounter.put(c.value,duplicateCount);
+            if (duplicateCount==4){
                 announceVictory();
                 return;
             }
-            duplicateCount++;
-            victoryCounter.put(c.value,duplicateCount);
         }
     }
 
     private void announceVictory(){
-        Main.log("Player"+id+" has won the game");
+        Main.log("Player "+ (id+1) +" has won the game");
         //Todo notify victory
+    }
+
+    @Override
+    public void run() {
+        checkVictory();
+
     }
 }

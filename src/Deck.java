@@ -21,7 +21,7 @@ public class Deck extends AbstractCardOwner {
     }
 
     static void pile(int playerId, Card dealtCard){
-        int target = (playerId>deckCount)?playerId:1;
+        int target = (playerId==deckCount)?playerId:0;
         decks.get(target).dealCard(dealtCard);
     }
 }
