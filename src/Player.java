@@ -95,14 +95,14 @@ class Player extends AbstractCardOwner implements Runnable {
                 Main.log("");
 
                 Card drawnCard = drawDeckCard();
-                Main.log("Player " + (id+1) + ": Draws a " + drawnCard.getValue() + " from Deck " + (id+1));
+                Main.log("PLAYER " + (id+1) + ": Draws a " + drawnCard.getValue() + " from Deck " + (id+1));
                 cards.add(drawnCard);
                 if (drawnCard.getValue() == (id+1)) {
                     Card unwantedCard = discardUnwantedAndGetCard();
-                    Main.log("Player " + (id+1) + ": Discards a " + unwantedCard.getValue() + " to Deck " + (((id+1) % Main.getNumberOfPlayers())+1));
+                    Main.log("PLAYER " + (id+1) + ": Discards a " + unwantedCard.getValue() + " to Deck " + (((id+1) % Main.getNumberOfPlayers())+1));
                 } else {
                     discard(drawnCard);
-                    Main.log("Player " + (id+1) + ": Discards a " + drawnCard.getValue() + " to Deck " + (((id+1) % Main.getNumberOfPlayers())+1));
+                    Main.log("PLAYER " + (id+1) + ": Discards a " + drawnCard.getValue() + " to Deck " + (((id+1) % Main.getNumberOfPlayers())+1));
                 }
             }
     }
