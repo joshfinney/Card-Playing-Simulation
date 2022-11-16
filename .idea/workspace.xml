@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d686b59d-4665-4a56-9940-ca2533949e20" name="Changes" comment="updated methods">
+    <list default="true" id="0fbea839-ba9e-4f62-b763-55123b6826e3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/AbstractCardOwner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/AbstractCardOwner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Deck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Card.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/pack.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/pack.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Deck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pack.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/pack.txt" afterDir="false" />
@@ -21,33 +19,28 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2HDsXXzYaYRpFPtlBcLseePstWw" />
+  <component name="ProjectId" id="2HPYCxr7T4tPkLRju4vCWrnoQjG" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -63,37 +56,16 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d686b59d-4665-4a56-9940-ca2533949e20" name="Changes" comment="" />
-      <created>1667831028843</created>
+      <changelist id="0fbea839-ba9e-4f62-b763-55123b6826e3" name="Changes" comment="" />
+      <created>1668188062345</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1667831028843</updated>
-      <workItem from="1667831032350" duration="51000" />
-      <workItem from="1667864698473" duration="31000" />
-      <workItem from="1668015238009" duration="1745000" />
-      <workItem from="1668090122180" duration="8581000" />
-      <workItem from="1668178157070" duration="2529000" />
+      <updated>1668188062345</updated>
+      <workItem from="1668188064934" duration="1351000" />
+      <workItem from="1668529780678" duration="13626000" />
     </task>
-    <task id="LOCAL-00001" summary="Implemented Object Oriented Framework and Class Foundations&#10;Added Todo items">
-      <created>1667932049890</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1667932049890</updated>
-    </task>
-    <task id="LOCAL-00002" summary="updated methods">
-      <created>1668179219761</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1668179219761</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,10 +81,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implemented Object Oriented Framework and Class Foundations&#10;Added Todo items" />
-    <MESSAGE value="updated methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated methods" />
   </component>
 </project>

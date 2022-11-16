@@ -7,12 +7,13 @@ import java.util.stream.Collectors;
 
 public class Main {
     static Scanner Input = new Scanner(System.in);
+    static int numberOfPlayer;
 
-    public static void main(String[] args) throws IOException {
-        int numberOfPlayer;
+    public static void main(String[] args) throws IOException, InterruptedException {
+
         boolean validPack = false;
         ArrayList<Card> pack = new ArrayList<>();
-        ArrayList<Player> players = new ArrayList<Player>();
+        ArrayList<Player> players = new ArrayList<>();
 
         System.out.println("Enter number of players:");
         numberOfPlayer = Input.nextInt();
@@ -39,28 +40,28 @@ public class Main {
 
         for (int i=0; i<4; i++){
             for (int j=0; j<numberOfPlayer;j++) {
-
                 //Fill player's hand
                 players.get(j).addCard(pack.remove(0));
                 //Fill each player's deck
                 Deck.decks.get(j).dealCard(pack.remove(0));
             }
         }
+
         for (Player player : players) {
             System.out.println("PLAYER " + (player.id+1) + ": Hand - " + player.readContents() + ", Deck - " + Deck.decks.get(player.id).readContents());
         }
 
+        // Start of game
         for (Player player : players) {
             player.run();
+            System.out.println("PLAYER " + (player.id+1) + ": Hand - " + player.readContents() + ", Deck - " + Deck.decks.get(player.id).readContents());
         }
-    }
 
-    public static int[] removeFirstElement(int[] arr) {
-        int newArr[] = new int[arr.length - 1];
-        for (int i = 1; i < arr.length; i++) {
-            newArr[i-1] = arr[i];
+
+        log("");
+        for (Player player : players) {
+            System.out.println("PLAYER " + (player.id+1) + ": Hand - " + player.readContents() + ", Deck - " + Deck.decks.get(player.id).readContents());
         }
-        return newArr;
     }
 
     static Optional<int[]> readAndValidatePack(int entries) throws FileNotFoundException {
@@ -133,6 +134,10 @@ public class Main {
         }
 
         output.close();
+    }
+
+    public static int getNumberOfPlayers() {
+        return numberOfPlayer;
     }
 
     public static void log(String s){
