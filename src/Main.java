@@ -10,7 +10,6 @@ public class Main {
     static int numberOfPlayer;
 
     public static void main(String[] args) throws IOException {
-
         boolean validPack = false;
         ArrayList<Card> pack = new ArrayList<>();
 
@@ -21,7 +20,7 @@ public class Main {
         generatePack(numberOfPlayer);
 
         while (!validPack) {
-            var tempPack = readAndValidatePack(numberOfPlayer * 8);
+            var tempPack = readAndValidatePack(numberOfPlayer * 8, "");
             if (tempPack.isPresent()) {
                 validPack = true;
                 pack = Arrays
@@ -34,7 +33,7 @@ public class Main {
     }
     public static void gameplay(ArrayList<Card> pack) throws FileNotFoundException {
         // Initialise players and their decks
-        ArrayList<Player> players = new ArrayList<Player>();
+        ArrayList<Player> players = new ArrayList<>();
 
         for (int i=0;i<numberOfPlayer;i++){
             players.add(new Player(i));
@@ -67,11 +66,13 @@ public class Main {
         }
     }
 
-    static Optional<int[]> readAndValidatePack(int entries) throws FileNotFoundException {
+    static Optional<int[]> readAndValidatePack(int entries, String location) throws FileNotFoundException {
         int[] pack = new int[entries];
         int lines = 0;
-        System.out.println("Enter pack location:");
-        String location = Input.nextLine();
+        if (location.isEmpty()) {
+            System.out.println("Enter pack location:");
+            location = (Input.nextLine());
+        }
 
         File file = new File("src/" + location);
         Scanner input = new Scanner(file);
