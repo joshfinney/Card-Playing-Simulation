@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.*;
@@ -7,10 +8,16 @@ class Player extends AbstractCardOwner implements Runnable {
     int id;
     boolean victory;
     static int round = 1;
-    PrintWriter output = new PrintWriter("src/player" + (id+1) + "_output.txt");
+    PrintWriter output;
 
     Player(int playerId) throws FileNotFoundException {
         this.id = playerId;
+        String writePath = "src/player" + (id+1) + "_output.txt";
+        File oldFile = new File(writePath);
+        oldFile.delete();
+        File writeFile = new File(writePath);
+        output = new PrintWriter(writeFile);
+
     }
 
     //todo asynchronous
@@ -60,7 +67,7 @@ class Player extends AbstractCardOwner implements Runnable {
     }
 
     void checkVictory(){
-        HashMap<Integer, Integer> victoryCounter = new HashMap<>(Map.of());
+        HashMap<Integer, Integer> victoryCounter = new HashMap<Integer, Integer>();
         for (Card c: cards) {
             victoryCounter.put(c.value, 0);
         }

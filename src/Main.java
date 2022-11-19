@@ -9,11 +9,10 @@ public class Main {
     static Scanner Input = new Scanner(System.in);
     static int numberOfPlayer;
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException {
 
         boolean validPack = false;
         ArrayList<Card> pack = new ArrayList<>();
-        ArrayList<Player> players = new ArrayList<>();
 
         System.out.println("Enter number of players:");
         numberOfPlayer = Input.nextInt();
@@ -22,18 +21,22 @@ public class Main {
         generatePack(numberOfPlayer);
 
         while (!validPack) {
-            var tempPack = readAndValidatePack(numberOfPlayer*8);
+            var tempPack = readAndValidatePack(numberOfPlayer * 8);
             if (tempPack.isPresent()) {
                 validPack = true;
                 pack = Arrays
-                        .stream(tempPack.orElse(new int[numberOfPlayer*8]))
+                        .stream(tempPack.orElse(new int[numberOfPlayer * 8]))
                         .mapToObj(Card::new)
                         .collect(Collectors.toCollection(ArrayList::new));
             }
         }
-
+        gameplay(pack);
+    }
+    public static void gameplay(ArrayList<Card> pack) throws FileNotFoundException {
         // Initialise players and their decks
-            for (int i=0;i<numberOfPlayer;i++){
+        ArrayList<Player> players = new ArrayList<Player>();
+
+        for (int i=0;i<numberOfPlayer;i++){
             players.add(new Player(i));
             Deck.decks.put(i,new Deck(i));
         }
