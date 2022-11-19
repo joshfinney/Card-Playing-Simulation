@@ -1,0 +1,37 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"0fbea839-ba9e-4f62-b763-55123b6826e3\" name=\"Changes\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/out/production/Card-Playing-Simulation/Card.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Card-Playing-Simulation/Card.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/out/production/Card-Playing-Simulation/Main.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Card-Playing-Simulation/Main.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/out/production/Card-Playing-Simulation/Player.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Card-Playing-Simulation/Player.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/out/production/Card-Playing-Simulation/pack.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/out/production/Card-Playing-Simulation/pack.txt\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Main.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/Player.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Player.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/pack.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/pack.txt\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2HPYCxr7T4tPkLRju4vCWrnoQjG\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;\n  }\n}</component>\n  <component name=\"RunManager\">\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\n      <module name=\"Card-Playing-Simulation\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.Main\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"0fbea839-ba9e-4f62-b763-55123b6826e3\" name=\"Changes\" comment=\"\" />\n      <created>1668188062345</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1668188062345</updated>\n      <workItem from=\"1668188064934\" duration=\"1351000\" />\n      <workItem from=\"1668529780678\" duration=\"13626000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision eba636640480e6834355a8df6310ab76ac756ae7)
++++ b/.idea/workspace.xml	(date 1668603936917)
+@@ -4,16 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="0fbea839-ba9e-4f62-b763-55123b6826e3" name="Changes" comment="">
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Card.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Main.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Player.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/pack.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/pack.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/pack.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/pack.txt" afterDir="false" />
+-    </list>
++    <list default="true" id="0fbea839-ba9e-4f62-b763-55123b6826e3" name="Changes" comment="" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -64,7 +55,7 @@
+       <option name="presentableId" value="Default" />
+       <updated>1668188062345</updated>
+       <workItem from="1668188064934" duration="1351000" />
+-      <workItem from="1668529780678" duration="13626000" />
++      <workItem from="1668529780678" duration="13951000" />
+     </task>
+     <servers />
+   </component>

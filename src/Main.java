@@ -7,11 +7,13 @@ import java.util.stream.Collectors;
 
 public class Main {
     static Scanner Input = new Scanner(System.in);
+    static int numberOfPlayer;
 
-    public static void main(String[] args) throws IOException {
-        int numberOfPlayer;
+    public static void main(String[] args) throws IOException, InterruptedException {
+
         boolean validPack = false;
         ArrayList<Card> pack = new ArrayList<>();
+        ArrayList<Player> players = new ArrayList<>();
 
         System.out.println("Enter number of players:");
         numberOfPlayer = Input.nextInt();
@@ -20,19 +22,15 @@ public class Main {
         generatePack(numberOfPlayer);
 
         while (!validPack) {
-            var tempPack = getPack(numberOfPlayer * 8);
+            var tempPack = readAndValidatePack(numberOfPlayer*8);
             if (tempPack.isPresent()) {
                 validPack = true;
                 pack = Arrays
-                        .stream(tempPack.orElse(new int[numberOfPlayer * 8]))
+                        .stream(tempPack.orElse(new int[numberOfPlayer*8]))
                         .mapToObj(Card::new)
                         .collect(Collectors.toCollection(ArrayList::new));
             }
         }
-        mainGame(numberOfPlayer, pack);
-    }
-    static void mainGame(int numberOfPlayer, ArrayList<Card> pack){
-        ArrayList<Player> players = new ArrayList<Player>();
 
         // Initialise players and their decks
             for (int i=0;i<numberOfPlayer;i++){
@@ -42,30 +40,36 @@ public class Main {
 
         for (int i=0; i<4; i++){
             for (int j=0; j<numberOfPlayer;j++) {
-
                 //Fill player's hand
                 players.get(j).addCard(pack.remove(0));
                 //Fill each player's deck
                 Deck.decks.get(j).dealCard(pack.remove(0));
             }
         }
+
         for (Player player : players) {
             System.out.println("PLAYER " + (player.id+1) + ": Hand - " + player.readContents() + ", Deck - " + Deck.decks.get(player.id).readContents());
         }
 
+        // Start of game
         for (Player player : players) {
             player.run();
+            System.out.println("PLAYER " + (player.id+1) + ": Hand - " + player.readContents() + ", Deck - " + Deck.decks.get(player.id).readContents());
+        }
+
+
+        log("");
+        for (Player player : players) {
+            System.out.println("PLAYER " + (player.id+1) + ": Hand - " + player.readContents() + ", Deck - " + Deck.decks.get(player.id).readContents());
         }
     }
 
-    static Optional<int[]> getPack(int entries) throws FileNotFoundException{
-        System.out.println("Enter pack location:");
-        String location = Input.nextLine();
-        return readAndValidatePack(location, entries);
-    }
-    static Optional<int[]> readAndValidatePack(String location, int entries) throws FileNotFoundException{
+    static Optional<int[]> readAndValidatePack(int entries) throws FileNotFoundException {
         int[] pack = new int[entries];
         int lines = 0;
+        System.out.println("Enter pack location:");
+        String location = Input.nextLine();
+
         File file = new File("src/" + location);
         Scanner input = new Scanner(file);
 
@@ -130,6 +134,10 @@ public class Main {
         }
 
         output.close();
+    }
+
+    public static int getNumberOfPlayers() {
+        return numberOfPlayer;
     }
 
     public static void log(String s){
