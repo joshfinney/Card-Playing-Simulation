@@ -13,7 +13,7 @@ class MainTest {
     @org.junit.jupiter.api.Test
     void gameplay() throws FileNotFoundException {
         ArrayList<Card> pack = Arrays
-                .stream(Main.readAndValidatePack(24, "data/pack.txt").orElse(new int[24]))
+                .stream(Main.readAndValidatePack(24, "pack.txt").orElse(new int[24]))
                 .mapToObj(Card::new)
                 .collect(Collectors.toCollection(ArrayList::new));
         Main.gameplay(pack);
