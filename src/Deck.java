@@ -19,9 +19,4 @@ public class Deck extends AbstractCardOwner {
     static Card draw(int PlayerId){
         return decks.get(PlayerId).drawRandomCard();
     }
-
-    static void pile(int playerId, Card dealtCard){
-        int target = (playerId==deckCount)?playerId:0;
-        decks.get(target).dealCard(dealtCard);
-    }
 }

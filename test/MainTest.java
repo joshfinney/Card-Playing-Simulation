@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
-
+    Main testInstance = new Main();
 
 
     @org.junit.jupiter.api.Test
@@ -16,6 +16,6 @@ class MainTest {
                 .stream(Main.readAndValidatePack(24, "pack.txt").orElse(new int[24]))
                 .mapToObj(Card::new)
                 .collect(Collectors.toCollection(ArrayList::new));
-        Main.gameplay(pack);
+        testInstance.gameplay(pack);
     }
 }

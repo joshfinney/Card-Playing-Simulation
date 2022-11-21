@@ -8,11 +8,14 @@ import java.util.stream.Collectors;
 public class Main {
     static Scanner Input = new Scanner(System.in);
     static int numberOfPlayer;
+    boolean gameEnded = false;
+    ArrayList<Player> players = new ArrayList<>();
+
 
     public static void main(String[] args) throws IOException {
         boolean validPack = false;
         ArrayList<Card> pack = new ArrayList<>();
-
+        Main currentGame = new Main();
         System.out.println("Enter number of players:");
         numberOfPlayer = Input.nextInt();
         Input.nextLine();
@@ -29,11 +32,10 @@ public class Main {
                         .collect(Collectors.toCollection(ArrayList::new));
             }
         }
-        gameplay(pack);
+        currentGame.gameplay(pack);
     }
-    public static void gameplay(ArrayList<Card> pack) throws FileNotFoundException {
+    public void gameplay(ArrayList<Card> pack) throws FileNotFoundException {
         // Initialise players and their decks
-        ArrayList<Player> players = new ArrayList<>();
 
         for (int i=0;i<numberOfPlayer;i++){
             players.add(new Player(i));
@@ -48,19 +50,28 @@ public class Main {
                 Deck.decks.get(j).dealCard(pack.remove(0));
             }
         }
-
-        for (Player player : players) {
-            System.out.println("PLAYER " + (player.id+1) + ": Hand - " + player.readContents() + ", Deck - " + Deck.decks.get(player.id).readContents());
+        printAllHands();
+        gameEnded = false;
+        while (!gameEnded) {
+            // Start of game
+            for (Player player : players) {
+                player.run();
+            }
+            printAllHands();
+            for (Player player : players){
+                gameEnded |= player.isVictory();
+            }
         }
 
-        // Start of game
-        for (Player player : players) {
-            player.run();
-            System.out.println("PLAYER " + (player.id+1) + ": Hand - " + player.readContents() + ", Deck - " + Deck.decks.get(player.id).readContents());
-        }
 
 
         log("");
+        for (Player player : players) {
+            System.out.println("PLAYER " + (player.id+1) + ": Hand - " + player.readContents() + ", Deck - " + Deck.decks.get(player.id).readContents());
+        }
+    }
+
+    void printAllHands(){
         for (Player player : players) {
             System.out.println("PLAYER " + (player.id+1) + ": Hand - " + player.readContents() + ", Deck - " + Deck.decks.get(player.id).readContents());
         }
@@ -147,4 +158,5 @@ public class Main {
     public static void log(String s){
         System.out.println(s);
     }
+
 }
