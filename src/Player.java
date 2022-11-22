@@ -1,47 +1,34 @@
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.*;
 import java.lang.Integer;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 class Player extends AbstractCardOwner implements Runnable {
-    int id;
-    int displayId;
-    int targetDeck;
+    int next;
     boolean victory;
-    boolean firstHand;
-    public boolean isVictory() {
-        return victory;
-    }
-    PrintWriter output;
+    boolean gameEnded;
+    static ArrayList<Player> players = new ArrayList<>();
 
     Player(int playerId) throws FileNotFoundException {
-        this.id = playerId;
-        this.displayId = id+1;
-        this.targetDeck = ((displayId % Main.getNumberOfPlayers())+1);
-        this.firstHand = true;
-        String writePath = "src/player" + (id+1) + "_output.txt";
-        File oldFile = new File(writePath);
-        oldFile.delete();
-        File writeFile = new File(writePath);
-        output = new PrintWriter(writeFile);
-
+        super(playerId, "src/player" + (playerId) + "_output.txt");
+        this.next = ((id % Main.getNumberOfPlayers())+1);
+        players.add(this);
+        this.gameEnded = false;
     }
 
-    void closeWriter(){
-        output.close();
+    static void dealCard(Card newCard, int index){
+        players.get(index).addCard(newCard);
     }
-
     private void discard(Card unwantedCard) {
-        int opponentsDeckId = (id + 1) % Main.getNumberOfPlayers();
+        int opponentsDeckId = next -1;
         cards.remove(unwantedCard);
-        Deck.decks.get(opponentsDeckId).cards.add(unwantedCard);
+        Deck.dealCard(unwantedCard, opponentsDeckId);
     }
 
     Card discardUnwantedAndGetCard() {
-        ArrayList<Card> currentDeck = Deck.decks.get(id).cards;
-        int randomIndex = 0;
-
+        int randomIndex;
         while (true) {
             Random ran = new Random();
             randomIndex = ran.nextInt(cards.size());
@@ -53,13 +40,12 @@ class Player extends AbstractCardOwner implements Runnable {
         }
     }
 
-
     Card drawDeckCard() {
-        return Deck.draw(id);
+        return Deck.draw(id-1);
     }
 
     void checkVictory(){
-        HashMap<Integer, Integer> victoryCounter = new HashMap<Integer, Integer>();
+        HashMap<Integer, Integer> victoryCounter = new HashMap<>();
         for (Card c: cards) {
             victoryCounter.put(c.value, 0);
         }
@@ -69,43 +55,59 @@ class Player extends AbstractCardOwner implements Runnable {
             victoryCounter.put(c.value,duplicateCount);
             if (duplicateCount==4){
                 victory = true;
-                announceVictory();
-                return;
+                tryVictory();
+                break;
             }
         }
+        getVictor();
     }
 
-    void logAction(String message){
-        message = "Player " + displayId + ":"+ message;
-        output.println(message);
-        Main.log(message);
+    private void tryVictory() {
+        Main.endGame(id);
     }
 
-    private void announceVictory() {
-        logAction(" has won the game");
-        Main.gameEnded = true;
+    private void getVictor() {
+        int victorId = Main.victorId;
+        if (victorId==id){
+            log("has won the game");
+        } else if (victorId!=0) {
+            log("has been informed by "+victorId+" of its victory");
+        } else return;
+        gameEnded = true;
     }
+
 
     public void run() {
-        if (firstHand) {
-            checkVictory();
-            firstHand=false;
-        }
-        String threadName = Thread.currentThread().getName();
-        logAction(" Alive on "+threadName);
-        logAction(" Initial hand - " + readContents());
-
-        Card drawnCard = drawDeckCard();
-        logAction(" Draws a " + drawnCard.getValue() + " from Deck " + displayId);
-        cards.add(drawnCard);
-        if (drawnCard.getValue() == (id+1)) {
-            Card unwantedCard = discardUnwantedAndGetCard();
-            logAction(" Discards a " + unwantedCard.getValue() + " to Deck " + targetDeck);
-        } else {
-            discard(drawnCard);
-            logAction(" Discards a " + drawnCard.getValue() + " to Deck " + targetDeck);
-        }
+        log("Alive on "+Thread.currentThread().getName());
+        log("Initial Hand "+readContents());
         checkVictory();
+        while (!gameEnded){
+            try{
+                Card drawnCard = drawDeckCard();
+                log("Draws a " + drawnCard.getValue() + " from Deck " + id);
+                cards.add(drawnCard);
+                if (drawnCard.getValue() == (id)) {
+                    Card unwantedCard = discardUnwantedAndGetCard();
+                    log("Discards a " + unwantedCard.getValue() + " to Deck " + next);
+                } else {
+                    discard(drawnCard);
+                    log("Discards a " + drawnCard.getValue() + " to Deck " + next);
+                }
+            }
+            catch (IndexOutOfBoundsException e){
+                log("ran out of cards to draw");
+            }
+            checkVictory();
+        }
+        log("Has Exited");
+        log("Final Hand "+readContents());
+        output.close();
+    }
+
+    void log(String message){
+        message = "Player " + id + " " + message;
+        output.println(message);
+        Main.log(message);
     }
 
 }

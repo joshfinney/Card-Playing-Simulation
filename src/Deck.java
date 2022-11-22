@@ -1,15 +1,12 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 public class Deck extends AbstractCardOwner {
-    int id;
-    static Map<Integer, Deck> decks = new HashMap<>();
-    static int deckCount=0;
+    static ArrayList<Deck> decks = new ArrayList<>();
 
-    Deck(int deckId){
-        id = deckId;
-        decks.put(id, this);
-        deckCount++;
+    Deck(int deckId) throws FileNotFoundException {
+        super(deckId, "src/deck"+deckId+"_output.txt");
+        decks.add(this);
     }
 
     static void dealCard(Card dealtCard, int TargetId){
@@ -17,5 +14,16 @@ public class Deck extends AbstractCardOwner {
     }
     static Card draw(int TargetId){
         return decks.get(TargetId).drawRandomCard();
+    }
+
+    static void printAll() {
+        decks.forEach(((deck) -> {
+            deck.log("Contains "+deck.readContents());
+            deck.closeWriter();
+        }));
+    }
+
+    void log(String s){
+        output.println("Deck "+id+" "+s);
     }
 }

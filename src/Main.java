@@ -12,8 +12,7 @@ public class Main {
     static Scanner Input;
     static int numberOfPlayer;
     static boolean gameEnded = false;
-    ArrayList<Player> players = new ArrayList<>();
-
+    static int victorId = 0;
 
     public static void main(String[] args) throws IOException {
         Input = new Scanner(System.in);
@@ -48,53 +47,47 @@ public class Main {
         }
         currentGame.gameplay(pack);
     }
+
+    public synchronized static int endGame(int id) {
+        if (victorId ==0){
+            log("player "+id+" wins");
+            gameEnded=true;
+            victorId = id;
+        }
+        return victorId;
+    }
+
     public void gameplay(ArrayList<Card> pack) throws FileNotFoundException {
         // Initialise players and their decks
-
-        for (int i=0;i<numberOfPlayer;i++){
-            players.add(new Player(i));
-            Deck.decks.put(i,new Deck(i));
+        // Player and Deck Ids are positive nonzero integers
+        for (int i=1;i<=numberOfPlayer;i++){
+            new Player(i);
+            new Deck(i);
         }
-
-
         for (int i=0; i<4; i++){
             for (int j=0; j<numberOfPlayer;j++) {
                 //Fill player's hand
-                players.get(j).addCard(pack.remove(0));
+                Player.dealCard(pack.remove(0),j);
                 //Fill each player's deck
                 Deck.dealCard(pack.remove(0),j);
             }
         }
-        printAllHands();
-        gameEnded = false;
-        while (!gameEnded) {
-            // Start of game
-            ExecutorService te = Executors.newCachedThreadPool();
-            for (Player p: players) {
-                te.execute(p);
-            }
-            te.shutdown();
-            //await process finish
-            try {
-                if (!te.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS)){
-                    te.shutdownNow();
-                }
-                else {
-                    printAllHands();
-                }
-            } catch (InterruptedException e) {
-                log(e.getMessage());
-            }
+        // Start of game
+        ExecutorService te = Executors.newCachedThreadPool();
+        for (Player p: Player.players) {
+            te.execute(p);
         }
-        players.iterator().forEachRemaining(Player::closeWriter);
-        //All output writers closed.
-    }
-
-    void printAllHands(){
-        log("");
-        for (Player player : players) {
-            log("PLAYER " + (player.id+1) + ": Hand - " + player.readContents() + ", Deck - " + Deck.decks.get(player.id).readContents());
+        te.shutdown();
+        //await process finish
+        try {
+            if (!te.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS)){
+                te.shutdownNow();
+            }
+        } catch (InterruptedException e) {
+            Main.log(e.getMessage());
         }
+        Deck.printAll();
+        //All output writers should be closed.
     }
 
     static Optional<int[]> readAndValidatePack(int entries, String location) throws FileNotFoundException {
@@ -178,5 +171,4 @@ public class Main {
     public static void log(String s){
         System.out.println(s);
     }
-
 }
