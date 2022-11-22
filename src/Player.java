@@ -9,6 +9,7 @@ class Player extends AbstractCardOwner implements Runnable {
     int displayId;
     int targetDeck;
     boolean victory;
+    boolean firstHand;
     public boolean isVictory() {
         return victory;
     }
@@ -18,12 +19,17 @@ class Player extends AbstractCardOwner implements Runnable {
         this.id = playerId;
         this.displayId = id+1;
         this.targetDeck = ((displayId % Main.getNumberOfPlayers())+1);
+        this.firstHand = true;
         String writePath = "src/player" + (id+1) + "_output.txt";
         File oldFile = new File(writePath);
         oldFile.delete();
         File writeFile = new File(writePath);
         output = new PrintWriter(writeFile);
 
+    }
+
+    void closeWriter(){
+        output.close();
     }
 
     private void discard(Card unwantedCard) {
@@ -73,7 +79,6 @@ class Player extends AbstractCardOwner implements Runnable {
         message = "Player " + displayId + ":"+ message;
         output.println(message);
         Main.log(message);
-        output.close();
     }
 
     private void announceVictory() {
@@ -82,6 +87,10 @@ class Player extends AbstractCardOwner implements Runnable {
     }
 
     public void run() {
+        if (firstHand) {
+            checkVictory();
+            firstHand=false;
+        }
         String threadName = Thread.currentThread().getName();
         logAction(" Alive on "+threadName);
         logAction(" Initial hand - " + readContents());

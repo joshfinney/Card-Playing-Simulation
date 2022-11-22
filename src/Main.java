@@ -9,24 +9,35 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 public class Main {
-    static Scanner Input = new Scanner(System.in);
+    static Scanner Input;
     static int numberOfPlayer;
     static boolean gameEnded = false;
     ArrayList<Player> players = new ArrayList<>();
 
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException {
+        Input = new Scanner(System.in);
         boolean validPack = false;
         ArrayList<Card> pack = new ArrayList<>();
         Main currentGame = new Main();
         System.out.println("Enter number of players:");
-        numberOfPlayer = Input.nextInt();
+        if (args.length>0 && args[0] != null) {
+            log("Testing provided value: "+args[0]);
+            numberOfPlayer = Integer.parseInt(args[0]);
+        }
+        else {numberOfPlayer = Input.nextInt();
         Input.nextLine();
-
+        }
         generatePack(numberOfPlayer);
-
+        int i=1;
         while (!validPack) {
-            var tempPack = readAndValidatePack(numberOfPlayer * 8, "");
+            Optional<int[]> tempPack;
+            if (i<args.length){
+                log("Provided file location: "+args[i]);
+                tempPack = readAndValidatePack(numberOfPlayer*8,args[i]);
+                i++;
+            }
+            else tempPack = readAndValidatePack(numberOfPlayer * 8, "");
             if (tempPack.isPresent()) {
                 validPack = true;
                 pack = Arrays
@@ -37,7 +48,7 @@ public class Main {
         }
         currentGame.gameplay(pack);
     }
-    public void gameplay(ArrayList<Card> pack) throws FileNotFoundException, InterruptedException {
+    public void gameplay(ArrayList<Card> pack) throws FileNotFoundException {
         // Initialise players and their decks
 
         for (int i=0;i<numberOfPlayer;i++){
@@ -55,7 +66,6 @@ public class Main {
             }
         }
         printAllHands();
-
         gameEnded = false;
         while (!gameEnded) {
             // Start of game
@@ -64,6 +74,7 @@ public class Main {
                 te.execute(p);
             }
             te.shutdown();
+            //await process finish
             try {
                 if (!te.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS)){
                     te.shutdownNow();
@@ -75,6 +86,8 @@ public class Main {
                 log(e.getMessage());
             }
         }
+        players.iterator().forEachRemaining(Player::closeWriter);
+        //All output writers closed.
     }
 
     void printAllHands(){
