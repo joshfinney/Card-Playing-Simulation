@@ -3,6 +3,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -12,7 +15,7 @@ public class Main {
     ArrayList<Player> players = new ArrayList<>();
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         boolean validPack = false;
         ArrayList<Card> pack = new ArrayList<>();
         Main currentGame = new Main();
@@ -34,13 +37,14 @@ public class Main {
         }
         currentGame.gameplay(pack);
     }
-    public void gameplay(ArrayList<Card> pack) throws FileNotFoundException {
+    public void gameplay(ArrayList<Card> pack) throws FileNotFoundException, InterruptedException {
         // Initialise players and their decks
 
         for (int i=0;i<numberOfPlayer;i++){
             players.add(new Player(i));
             Deck.decks.put(i,new Deck(i));
         }
+
 
         for (int i=0; i<4; i++){
             for (int j=0; j<numberOfPlayer;j++) {
@@ -51,11 +55,25 @@ public class Main {
             }
         }
         printAllHands();
+
         gameEnded = false;
         while (!gameEnded) {
             // Start of game
-            players.iterator().forEachRemaining(Player::run);
-            printAllHands();
+            ExecutorService te = Executors.newCachedThreadPool();
+            for (Player p: players) {
+                te.execute(p);
+            }
+            te.shutdown();
+            try {
+                if (!te.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS)){
+                    te.shutdownNow();
+                }
+                else {
+                    printAllHands();
+                }
+            } catch (InterruptedException e) {
+                log(e.getMessage());
+            }
         }
     }
 

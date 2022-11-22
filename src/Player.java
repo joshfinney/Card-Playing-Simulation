@@ -6,6 +6,8 @@ import java.lang.Integer;
 
 class Player extends AbstractCardOwner implements Runnable {
     int id;
+    int displayId;
+    int targetDeck;
     boolean victory;
     public boolean isVictory() {
         return victory;
@@ -14,6 +16,8 @@ class Player extends AbstractCardOwner implements Runnable {
 
     Player(int playerId) throws FileNotFoundException {
         this.id = playerId;
+        this.displayId = id+1;
+        this.targetDeck = ((displayId % Main.getNumberOfPlayers())+1);
         String writePath = "src/player" + (id+1) + "_output.txt";
         File oldFile = new File(writePath);
         oldFile.delete();
@@ -65,31 +69,34 @@ class Player extends AbstractCardOwner implements Runnable {
         }
     }
 
-    void logAction(String Message){
-        output.println(Message);
+    void logAction(String message){
+        message = "Player " + displayId + ":"+ message;
+        output.println(message);
+        Main.log(message);
         output.close();
     }
 
     private void announceVictory() {
-        Main.log("Player "+ (id+1) +" has won the game");
+        logAction(" has won the game");
         Main.gameEnded = true;
     }
 
-    @Override
     public void run() {
-        logAction("Player " + (id+1) + ": Initial hand - " + readContents());
-        Main.log("");
+        String threadName = Thread.currentThread().getName();
+        logAction(" Alive on "+threadName);
+        logAction(" Initial hand - " + readContents());
 
         Card drawnCard = drawDeckCard();
-        Main.log("PLAYER " + (id+1) + ": Draws a " + drawnCard.getValue() + " from Deck " + (id+1));
+        logAction(" Draws a " + drawnCard.getValue() + " from Deck " + displayId);
         cards.add(drawnCard);
         if (drawnCard.getValue() == (id+1)) {
             Card unwantedCard = discardUnwantedAndGetCard();
-            Main.log("PLAYER " + (id+1) + ": Discards a " + unwantedCard.getValue() + " to Deck " + (((id+1) % Main.getNumberOfPlayers())+1));
+            logAction(" Discards a " + unwantedCard.getValue() + " to Deck " + targetDeck);
         } else {
             discard(drawnCard);
-            Main.log("PLAYER " + (id+1) + ": Discards a " + drawnCard.getValue() + " to Deck " + (((id+1) % Main.getNumberOfPlayers())+1));
+            logAction(" Discards a " + drawnCard.getValue() + " to Deck " + targetDeck);
         }
         checkVictory();
     }
+
 }

@@ -1,1 +1,1 @@
-Player 3: Initial hand - 2 1 3 2 
+Player 3: Alive on pool-1-thread-3
