@@ -32,7 +32,7 @@ class Player extends AbstractCardOwner implements Runnable {
         while (true) {
             Random ran = new Random();
             randomIndex = ran.nextInt(cards.size());
-            if (cards.get(randomIndex).getValue() != (id+1)) {
+            if (cards.get(randomIndex).getValue() != (id)) {
                 Card discardedCard = cards.get(randomIndex);
                 discard(discardedCard);
                 return discardedCard;

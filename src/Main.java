@@ -50,7 +50,6 @@ public class Main {
 
     public synchronized static int endGame(int id) {
         if (victorId ==0){
-            log("player "+id+" wins");
             gameEnded=true;
             victorId = id;
         }
