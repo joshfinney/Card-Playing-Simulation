@@ -12,11 +12,10 @@ public class Deck extends AbstractCardOwner {
         deckCount++;
     }
 
-    void dealCard(Card dealtCard){
-        addCard(dealtCard);
+    static void dealCard(Card dealtCard, int TargetId){
+        decks.get(TargetId).addCard(dealtCard);
     }
-
-    static Card draw(int PlayerId){
-        return decks.get(PlayerId).drawRandomCard();
+    static Card draw(int TargetId){
+        return decks.get(TargetId).drawRandomCard();
     }
 }

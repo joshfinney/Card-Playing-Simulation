@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class Main {
     static Scanner Input = new Scanner(System.in);
     static int numberOfPlayer;
-    boolean gameEnded = false;
+    static boolean gameEnded = false;
     ArrayList<Player> players = new ArrayList<>();
 
 
@@ -47,33 +47,22 @@ public class Main {
                 //Fill player's hand
                 players.get(j).addCard(pack.remove(0));
                 //Fill each player's deck
-                Deck.decks.get(j).dealCard(pack.remove(0));
+                Deck.dealCard(pack.remove(0),j);
             }
         }
         printAllHands();
         gameEnded = false;
         while (!gameEnded) {
             // Start of game
-            for (Player player : players) {
-                player.run();
-            }
+            players.iterator().forEachRemaining(Player::run);
             printAllHands();
-            for (Player player : players){
-                gameEnded |= player.isVictory();
-            }
-        }
-
-
-
-        log("");
-        for (Player player : players) {
-            System.out.println("PLAYER " + (player.id+1) + ": Hand - " + player.readContents() + ", Deck - " + Deck.decks.get(player.id).readContents());
         }
     }
 
     void printAllHands(){
+        log("");
         for (Player player : players) {
-            System.out.println("PLAYER " + (player.id+1) + ": Hand - " + player.readContents() + ", Deck - " + Deck.decks.get(player.id).readContents());
+            log("PLAYER " + (player.id+1) + ": Hand - " + player.readContents() + ", Deck - " + Deck.decks.get(player.id).readContents());
         }
     }
 

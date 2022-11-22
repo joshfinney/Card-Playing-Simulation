@@ -22,15 +22,6 @@ class Player extends AbstractCardOwner implements Runnable {
 
     }
 
-    //todo asynchronous
-    //todo Logging
-
-    void grabCards(){
-        //Todo check drawable status
-        cards.add(Deck.draw(id));
-    }
-
-
     private void discard(Card unwantedCard) {
         int opponentsDeckId = (id + 1) % Main.getNumberOfPlayers();
         cards.remove(unwantedCard);
@@ -53,16 +44,8 @@ class Player extends AbstractCardOwner implements Runnable {
     }
 
 
-    private Card preferredDiscard(){
-        //todo weighted preference by Id, substituting truly random draw
-        System.out.println(Deck.decks.get(id).cards.toString());
-        return drawRandomCard();
-    }
-
     Card drawDeckCard() {
-        Card drawnCard = Deck.decks.get(id).cards.get(0);
-        Deck.decks.get(id).cards.remove(0);
-        return drawnCard;
+        return Deck.draw(id);
     }
 
     void checkVictory(){
@@ -89,28 +72,24 @@ class Player extends AbstractCardOwner implements Runnable {
 
     private void announceVictory() {
         Main.log("Player "+ (id+1) +" has won the game");
-        notifyAll();
-        //Todo notify victory
+        Main.gameEnded = true;
     }
 
     @Override
     public void run() {
-
         logAction("Player " + (id+1) + ": Initial hand - " + readContents());
-        synchronized (this) {
-            Main.log("");
+        Main.log("");
 
-            Card drawnCard = drawDeckCard();
-            Main.log("PLAYER " + (id+1) + ": Draws a " + drawnCard.getValue() + " from Deck " + (id+1));
-            cards.add(drawnCard);
-            if (drawnCard.getValue() == (id+1)) {
-                Card unwantedCard = discardUnwantedAndGetCard();
-                Main.log("PLAYER " + (id+1) + ": Discards a " + unwantedCard.getValue() + " to Deck " + (((id+1) % Main.getNumberOfPlayers())+1));
-            } else {
-                discard(drawnCard);
-                Main.log("PLAYER " + (id+1) + ": Discards a " + drawnCard.getValue() + " to Deck " + (((id+1) % Main.getNumberOfPlayers())+1));
-            }
-            checkVictory();
+        Card drawnCard = drawDeckCard();
+        Main.log("PLAYER " + (id+1) + ": Draws a " + drawnCard.getValue() + " from Deck " + (id+1));
+        cards.add(drawnCard);
+        if (drawnCard.getValue() == (id+1)) {
+            Card unwantedCard = discardUnwantedAndGetCard();
+            Main.log("PLAYER " + (id+1) + ": Discards a " + unwantedCard.getValue() + " to Deck " + (((id+1) % Main.getNumberOfPlayers())+1));
+        } else {
+            discard(drawnCard);
+            Main.log("PLAYER " + (id+1) + ": Discards a " + drawnCard.getValue() + " to Deck " + (((id+1) % Main.getNumberOfPlayers())+1));
         }
+        checkVictory();
     }
 }
