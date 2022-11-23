@@ -9,7 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fbea839-ba9e-4f62-b763-55123b6826e3" name="Changes" comment="" />
+    <list default="true" id="0fbea839-ba9e-4f62-b763-55123b6826e3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -139,7 +141,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DeckTest.draw" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DeckTest.draw" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="Card-Playing-Simulation" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="DeckTest" />
@@ -188,7 +190,6 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DeckTest.draw" />
         <item itemvalue="JUnit.MainTest" />
         <item itemvalue="JUnit.MainTest.readAndValidatePackNegativeTest" />
         <item itemvalue="Application.Main" />
