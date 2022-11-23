@@ -49,9 +49,4 @@ public class DeckTest {
         System.out.println("original content: "+actualPackContents);
         assertEquals(actualPackContents, testingPackContents);
     }
-
-    @org.junit.jupiter.api.Test
-    void testPrintAll() {
-
-    }
 }
