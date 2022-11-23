@@ -76,12 +76,6 @@ class Player extends AbstractCardOwner implements Callable<Boolean> {
         output.close();
     }
 
-    public void firstTurnAction(){
-        log("alive on "+Thread.currentThread().getName());
-        log("initial Hand "+readContents());
-        checkVictory();
-    }
-
     // this return value does not matter, but it is required for the Callable Interface.
     public Boolean call() {
         if (firstTurn){
@@ -111,7 +105,7 @@ class Player extends AbstractCardOwner implements Callable<Boolean> {
     void log(String message){
         message = "Player " + id + " " + message;
         output.println(message);
-        Main.log(message);
+        Main.println(message);
     }
 
 }
