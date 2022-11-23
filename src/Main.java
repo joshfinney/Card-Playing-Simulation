@@ -18,6 +18,8 @@ public class Main {
         Input = new Scanner(System.in);
         boolean validPack = false;
         ArrayList<Card> pack = new ArrayList<>();
+        System.out.println("________________________");
+        System.out.println("SET UP");
         System.out.println("Enter number of players:");
         if (args.length>0 && args[0] != null) {
             log("Testing provided value: "+args[0]);
@@ -44,6 +46,7 @@ public class Main {
                         .collect(Collectors.toCollection(ArrayList::new));
             }
         }
+
         for (int i=1;i<=numberOfPlayer;i++){
             new Player(i);
             new Deck(i);
@@ -56,10 +59,22 @@ public class Main {
                 Deck.dealCard(pack.remove(0),j);
             }
         }
+
+        System.out.println("");
+        System.out.println("________________________");
+        System.out.println("INITIAL CARDS");
+        for (Player player : Player.players) {
+            System.out.println("Player " + (player.id) + ": Hand - " + player.readContents() + ", Deck - " + Deck.decks.get(player.id - 1).readContents());
+        }
+        System.out.println("");
+        System.out.println("________________________");
+        System.out.println("GAMEPLAY");
+
         // Start of game
         ExecutorService te = Executors.newCachedThreadPool();
         while (victorId==0){
             te.invokeAll(Player.players);
+            System.out.println("");
         }
         te.shutdown();
         //await process finish

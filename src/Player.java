@@ -85,7 +85,7 @@ class Player extends AbstractCardOwner implements Callable<Boolean> {
     // this return value does not matter, but it is required for the Callable Interface.
     public Boolean call() {
         if (firstTurn){
-            firstTurnAction();
+            // firstTurnAction();
             firstTurn=false;
         }
         try{
@@ -99,6 +99,7 @@ class Player extends AbstractCardOwner implements Callable<Boolean> {
                 discard(drawnCard);
                 log("discards a " + drawnCard.getValue() + " to Deck " + next);
             }
+            log("current hand is " + readContents());
         }
         catch (IndexOutOfBoundsException e){
             log("ran out of cards to draw");
