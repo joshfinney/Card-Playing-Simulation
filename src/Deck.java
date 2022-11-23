@@ -9,11 +9,15 @@ public class Deck extends AbstractCardOwner {
         decks.add(this);
     }
 
-    static void dealCard(Card dealtCard, int TargetId){
-        decks.get(TargetId).addCard(dealtCard);
+    static void dealCard(Card dealtCard, int targetId){
+        synchronized (decks.get(targetId)){
+            decks.get(targetId).addCard(dealtCard);
+        }
     }
-    static Card draw(int TargetId){
-        return decks.get(TargetId).drawRandomCard();
+    static Card draw(int targetId){
+        synchronized (decks.get(targetId)) {
+            return decks.get(targetId).drawRandomCard();
+        }
     }
 
     static void printAll() {

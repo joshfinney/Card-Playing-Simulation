@@ -16,11 +16,11 @@ public abstract class AbstractCardOwner {
     }
     PrintWriter output;
 
-    synchronized Card drawRandomCard(){
+    Card drawRandomCard(){
         int randomIndex = (int) Math.floor(Math.random()*cards.size());
         return cards.remove(randomIndex);
     }
-    synchronized void addCard(Card addedCard){
+    void addCard(Card addedCard){
         cards.add(addedCard);
     }
 
