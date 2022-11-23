@@ -50,7 +50,7 @@ public class Main {
                 println("NumberFormatException: That was not a valid number");
             }
         }
-        
+
         generatePack(numberOfPlayer);
         int argIndex = 1;
         while (!validPack) {
