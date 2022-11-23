@@ -40,11 +40,12 @@ public class Main {
     public void gameplay(ArrayList<Card> pack) throws FileNotFoundException, InterruptedException {
         // Initialise players and their decks
 
+        int round = 1;
+
         for (int i=0;i<numberOfPlayer;i++){
             players.add(new Player(i));
             Deck.decks.put(i,new Deck(i));
         }
-
 
         for (int i=0; i<4; i++){
             for (int j=0; j<numberOfPlayer;j++) {
@@ -59,6 +60,9 @@ public class Main {
         gameEnded = false;
         while (!gameEnded) {
             // Start of game
+            System.out.println("");
+            System.out.println("Round " + round);
+            round++;
             ExecutorService te = Executors.newCachedThreadPool();
             for (Player p: players) {
                 te.execute(p);

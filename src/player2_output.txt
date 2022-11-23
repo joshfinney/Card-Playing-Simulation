@@ -1,1 +1,1 @@
-Player 2: Alive on pool-1-thread-2
+PLAYER 2: Draws a 1 from Deck 2

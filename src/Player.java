@@ -70,7 +70,7 @@ class Player extends AbstractCardOwner implements Runnable {
     }
 
     void logAction(String message){
-        message = "Player " + displayId + ":"+ message;
+        message = "PLAYER " + displayId + ":"+ message;
         output.println(message);
         Main.log(message);
         output.close();
@@ -82,21 +82,23 @@ class Player extends AbstractCardOwner implements Runnable {
     }
 
     public void run() {
-        String threadName = Thread.currentThread().getName();
-        logAction(" Alive on "+threadName);
-        logAction(" Initial hand - " + readContents());
+        synchronized (this) {
+            String threadName = Thread.currentThread().getName();
+            // logAction(" Alive on " + threadName);
+            // logAction(" Initial hand - " + readContents());
 
-        Card drawnCard = drawDeckCard();
-        logAction(" Draws a " + drawnCard.getValue() + " from Deck " + displayId);
-        cards.add(drawnCard);
-        if (drawnCard.getValue() == (id+1)) {
-            Card unwantedCard = discardUnwantedAndGetCard();
-            logAction(" Discards a " + unwantedCard.getValue() + " to Deck " + targetDeck);
-        } else {
-            discard(drawnCard);
-            logAction(" Discards a " + drawnCard.getValue() + " to Deck " + targetDeck);
+            Card drawnCard = drawDeckCard();
+            logAction(" Draws a " + drawnCard.getValue() + " from Deck " + displayId);
+            cards.add(drawnCard);
+            if (drawnCard.getValue() == (id+1)) {
+                Card unwantedCard = discardUnwantedAndGetCard();
+                logAction(" Discards a " + unwantedCard.getValue() + " to Deck " + targetDeck);
+            } else {
+                discard(drawnCard);
+                logAction(" Discards a " + drawnCard.getValue() + " to Deck " + targetDeck);
+            }
+            checkVictory();
         }
-        checkVictory();
     }
 
 }

@@ -5,9 +5,8 @@ public class AbstractCardOwner {
     AbstractCardOwner(){
         cards = new ArrayList<Card>();
     }
-    synchronized Card drawRandomCard(){
-        int randomIndex = (int) Math.floor(Math.random()*cards.size());
-        return cards.remove(randomIndex);
+    synchronized Card drawTopCard(){
+        return cards.remove(0);
     }
     void addCard(Card addedCard){
         cards.add(addedCard);

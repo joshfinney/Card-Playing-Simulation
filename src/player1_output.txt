@@ -1,1 +1,1 @@
-Player 1: Alive on pool-1-thread-1
+PLAYER 1: Draws a 3 from Deck 1

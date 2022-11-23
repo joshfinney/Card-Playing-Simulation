@@ -16,6 +16,6 @@ public class Deck extends AbstractCardOwner {
         decks.get(TargetId).addCard(dealtCard);
     }
     static Card draw(int TargetId){
-        return decks.get(TargetId).drawRandomCard();
+        return decks.get(TargetId).drawTopCard();
     }
 }

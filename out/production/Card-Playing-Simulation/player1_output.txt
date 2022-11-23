@@ -1,1 +1,0 @@
-Player 1: Alive on pool-1-thread-1
