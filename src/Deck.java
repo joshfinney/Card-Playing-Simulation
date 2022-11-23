@@ -16,11 +16,12 @@ public class Deck extends AbstractCardOwner {
         }
     }
 
+    // Draws the first card of this deck
     Card drawTopCard(){
         return cards.remove(0);
     }
 
-    // Draws the top card of the player's deck
+    // Draws the top card of the targeted deck,
     static Card draw(int targetId){
         synchronized (decks.get(targetId)) {
             return decks.get(targetId).drawTopCard();
