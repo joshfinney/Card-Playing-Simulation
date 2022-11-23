@@ -104,7 +104,16 @@ public class Main {
             location = (Input.nextLine());
         }
 
-        File file = new File("src/" + location);
+        String path;
+
+        if (location.contains("test")) {
+            path = "out/test/";
+        } else {
+            path = "src/";
+        }
+
+        File file = new File(path);
+
         Scanner input = new Scanner(file);
 
         while (input.hasNextLine()) {
@@ -162,6 +171,35 @@ public class Main {
         Collections.shuffle(pack);
 
         PrintWriter output = new PrintWriter("src/pack.txt");
+
+        for (Integer integer : pack) {
+            output.println(integer);
+        }
+
+        output.close();
+    }
+
+    static void generatePackWithNegativeNumbers(int players) throws FileNotFoundException {
+        ArrayList<Integer> pack = new ArrayList<>();
+        Random rand = new Random();
+
+        while (pack.size() < (players * 8)) {
+            for (int i = 1; i <= players; i++) {
+                if (pack.size() == (players * 8)) {
+                    break;
+                } else {
+                    if (rand.nextInt(2) == 0) {
+                        pack.add(i);
+                    } else {
+                        pack.add(-i);
+                    }
+                }
+            }
+        }
+
+        Collections.shuffle(pack);
+
+        PrintWriter output = new PrintWriter("out/test/testNegativePack.txt");
 
         for (Integer integer : pack) {
             output.println(integer);
