@@ -155,6 +155,7 @@ public class Main {
         return Optional.of(pack);
     }
 
+    // Used for testing purposes
     static void generatePack(int players) throws FileNotFoundException {
         ArrayList<Integer> pack = new ArrayList<>();
 
@@ -179,7 +180,8 @@ public class Main {
         output.close();
     }
 
-    static void generatePackWithNegativeNumbers(int players) throws FileNotFoundException {
+    // Used for testing purposes
+    public static void generatePackWithNegativeNumbers(int players) throws FileNotFoundException {
         ArrayList<Integer> pack = new ArrayList<>();
         Random rand = new Random();
 
@@ -199,7 +201,34 @@ public class Main {
 
         Collections.shuffle(pack);
 
-        PrintWriter output = new PrintWriter("out/test/testNegativePack.txt");
+        PrintWriter output = new PrintWriter("src/testNegativePack.txt");
+
+        for (Integer integer : pack) {
+            output.println(integer);
+        }
+
+        output.close();
+    }
+
+    // Used for testing purposes
+    public static void generatePackWithWrongRowCount(int players) throws FileNotFoundException {
+        ArrayList<Integer> pack = new ArrayList<>();
+        Random rand = new Random();
+        int rowCount = rand.nextInt(10);
+
+        while (pack.size() < rowCount) {
+            for (int i = 1; i <= players; i++) {
+                if (pack.size() == rowCount) {
+                    break;
+                } else {
+                    pack.add(i);
+                }
+            }
+        }
+
+        Collections.shuffle(pack);
+
+        PrintWriter output = new PrintWriter("src/testWrongRowCountPack.txt");
 
         for (Integer integer : pack) {
             output.println(integer);

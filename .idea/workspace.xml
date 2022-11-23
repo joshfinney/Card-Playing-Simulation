@@ -6,17 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0fbea839-ba9e-4f62-b763-55123b6826e3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Card-Playing-Simulation/MainTest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/MainTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/logs/deck2_output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/logs/deck2_output.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/logs/deck3_output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/logs/deck3_output.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/logs/player3_output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/logs/player3_output.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pack.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/pack.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +129,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MainTest.readAndValidatePackNegativeTest">
+  <component name="RunManager" selected="JUnit.MainTest.generatePackWithNegativeNumbers">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Card-Playing-Simulation" />
@@ -156,21 +147,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainTest.gameplay" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MainTest.generatePackWithNegativeNumbers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Card-Playing-Simulation" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="MainTest" />
-      <option name="METHOD_NAME" value="gameplay" />
+      <option name="METHOD_NAME" value="generatePackWithNegativeNumbers" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainTest.main" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MainTest.generatePackWithNegativeNumbersTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Card-Playing-Simulation" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="MainTest" />
-      <option name="METHOD_NAME" value="main" />
+      <option name="METHOD_NAME" value="generatePackWithNegativeNumbersTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -188,18 +179,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.MainTest.generatePackWithNegativeNumbers" />
+      <item itemvalue="JUnit.MainTest.generatePackWithNegativeNumbersTest" />
       <item itemvalue="JUnit.MainTest.readAndValidatePackNegativeTest" />
-      <item itemvalue="JUnit.MainTest.gameplay" />
-      <item itemvalue="JUnit.MainTest.main" />
       <item itemvalue="JUnit.MainTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MainTest.generatePackWithNegativeNumbers" />
+        <item itemvalue="JUnit.MainTest.generatePackWithNegativeNumbersTest" />
         <item itemvalue="JUnit.MainTest.readAndValidatePackNegativeTest" />
         <item itemvalue="JUnit.MainTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.MainTest.gameplay" />
-        <item itemvalue="JUnit.MainTest.main" />
       </list>
     </recent_temporary>
   </component>
