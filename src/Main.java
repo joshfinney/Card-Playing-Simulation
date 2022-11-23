@@ -1,10 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -20,7 +18,7 @@ public class Main {
         Input = new Scanner(System.in);
         boolean validPack = false;
         // generate directories outside of environment
-        Path logsRoot = Paths.get("out/logs/");
+        Path logsRoot = Path.of("out/logs/");
         Files.createDirectories(logsRoot);
         ArrayList<Card> pack = new ArrayList<>();
         println("________________________");
