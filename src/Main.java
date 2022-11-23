@@ -20,8 +20,8 @@ public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         Input = new Scanner(System.in);
         boolean validPack = false;
-        Path logsPath = Paths.get("out/logs/");
-        Files.createDirectories(logsPath);
+        Path logsRoot = Paths.get("out/logs/");
+        Files.createDirectories(logsRoot);
         ArrayList<Card> pack = new ArrayList<>();
         println("________________________");
         println("SET UP");
@@ -150,6 +150,7 @@ public class Main {
         }
         catch (FileNotFoundException e){
             println("There is no card file to read from");
+            return Optional.empty();
         }
         return Optional.of(pack);
     }
@@ -169,66 +170,9 @@ public class Main {
         }
 
         Collections.shuffle(pack);
-        Path src = Paths.get("src/");
-        Files.createDirectories(src);
+        Path srcRoot = Paths.get("src/");
+        Files.createDirectories(srcRoot);
         PrintWriter output = new PrintWriter("src/pack.txt");
-
-        for (Integer integer : pack) {
-            output.println(integer);
-        }
-
-        output.close();
-    }
-
-    // Used for testing purposes
-    public static void generatePackWithNegativeNumbers(int players) throws FileNotFoundException {
-        ArrayList<Integer> pack = new ArrayList<>();
-        Random rand = new Random();
-
-        while (pack.size() < (players * 8)) {
-            for (int i = 1; i <= players; i++) {
-                if (pack.size() == (players * 8)) {
-                    break;
-                } else {
-                    if (rand.nextInt(2) == 0) {
-                        pack.add(i);
-                    } else {
-                        pack.add(-i);
-                    }
-                }
-            }
-        }
-
-        Collections.shuffle(pack);
-
-        PrintWriter output = new PrintWriter("src/testNegativePack.txt");
-
-        for (Integer integer : pack) {
-            output.println(integer);
-        }
-
-        output.close();
-    }
-
-    // Used for testing purposes
-    public static void generatePackWithWrongRowCount(int players) throws FileNotFoundException {
-        ArrayList<Integer> pack = new ArrayList<>();
-        Random rand = new Random();
-        int rowCount = rand.nextInt(10);
-
-        while (pack.size() < rowCount) {
-            for (int i = 1; i <= players; i++) {
-                if (pack.size() == rowCount) {
-                    break;
-                } else {
-                    pack.add(i);
-                }
-            }
-        }
-
-        Collections.shuffle(pack);
-
-        PrintWriter output = new PrintWriter("src/testWrongRowCountPack.txt");
 
         for (Integer integer : pack) {
             output.println(integer);
