@@ -20,7 +20,7 @@ class MainTest {
     }
     @org.junit.jupiter.api.Test
     @org.junit.jupiter.api.Timeout(1000)
-    void gameplay() throws InterruptedException, IOException {
+    void main() throws InterruptedException, IOException {
         String[] args = {"3", "pack.txt"};
         Main.main(args);
     }
