@@ -5,7 +5,6 @@ import java.util.concurrent.Callable;
 
 class Player extends AbstractCardOwner implements Callable<Boolean> {
     int next;
-    boolean victory;
     boolean firstTurn;
     static ArrayList<Player> players = new ArrayList<>();
 
@@ -43,20 +42,23 @@ class Player extends AbstractCardOwner implements Callable<Boolean> {
     }
 
     void checkVictory(){
+        //this will map any extant value of hand cards to the number of times it is duplicated
         HashMap<Integer, Integer> victoryCounter = new HashMap<>();
         for (Card c: cards) {
-            victoryCounter.put(c.value, 0);
+            victoryCounter.put(c.getValue(), 0);
         }
+        //this counts the amount of duplicates in each ard
         for (Card c: cards) {
-            int duplicateCount = victoryCounter.get(c.value);
+            int duplicateCount = victoryCounter.get(c.getValue());
             duplicateCount++;
-            victoryCounter.put(c.value,duplicateCount);
+            victoryCounter.put(c.getValue(),duplicateCount);
+            //this announces to the Main class that the player has satisfied victory conditions.
             if (duplicateCount==4){
-                victory = true;
                 tryVictory();
                 break;
             }
         }
+        //regardless, the player always checks if an opponent has gained victory first.
         getVictor();
     }
 
@@ -65,7 +67,7 @@ class Player extends AbstractCardOwner implements Callable<Boolean> {
     }
 
     private void getVictor() {
-        int victorId = Main.victorId;
+        int victorId = Main.getVictorId();
         if (victorId==id){
             log("has won the game");
         } else if (victorId!=0) {
@@ -73,7 +75,7 @@ class Player extends AbstractCardOwner implements Callable<Boolean> {
         } else return;
         log("has Exited");
         log("final Hand "+readContents());
-        output.close();
+        closeWriter();
     }
 
     // this return value does not matter, but it is required for the Callable Interface.

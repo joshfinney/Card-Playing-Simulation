@@ -13,8 +13,15 @@ import java.util.stream.Collectors;
 
 public class Main {
     static Scanner Input;
+
     static int numberOfPlayer;
-    static int victorId = 0;
+    private static int victorId = 0;
+    static int getVictorId() {
+        return victorId;
+    }
+    static void resetVictor() {
+        victorId=0;
+    }
 
     public static void main(String[] args) throws IOException, InterruptedException {
         Input = new Scanner(System.in);

@@ -16,14 +16,10 @@ public abstract class AbstractCardOwner {
     }
     PrintWriter output;
 
-    Card drawRandomCard(){
-        int randomIndex = (int) Math.floor(Math.random()*cards.size());
-        return cards.remove(randomIndex);
-    }
     void addCard(Card addedCard){
         cards.add(addedCard);
     }
-
+    //outputs all contents to a whitespace separated String
     String readContents(){
         String contents = "";
         for (Card a : cards) {
@@ -34,6 +30,4 @@ public abstract class AbstractCardOwner {
     void closeWriter(){
         output.close();
     }
-
-
 }
