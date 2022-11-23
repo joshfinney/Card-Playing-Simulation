@@ -1,10 +1,11 @@
+//Simple atomic wrapper of an int value
 class Card{
-    int value;
+    private int value;
     Card(int value){
         this.value = value;
     }
 
-    int getValue(){
+    synchronized int getValue(){
         return value;
     }
 }

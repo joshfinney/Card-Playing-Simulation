@@ -13,8 +13,18 @@ import java.util.stream.Collectors;
 
 public class Main {
     static Scanner Input;
-    static int numberOfPlayer;
-    static int victorId = 0;
+
+    private static int numberOfPlayer = 0;
+    static void setPlayers(int players){
+        numberOfPlayer=players;
+    }
+    private static int victorId = 0;
+    static int getVictorId() {
+        return victorId;
+    }
+    static void resetVictor() {
+        victorId=0;
+    }
 
     public static void main(String[] args) throws IOException, InterruptedException {
         Input = new Scanner(System.in);
@@ -24,20 +34,29 @@ public class Main {
         ArrayList<Card> pack = new ArrayList<>();
         println("________________________");
         println("SET UP");
-        println("Enter number of players:");
-        if (args.length>0 && args[0] != null) {
-            println("Testing provided value: "+args[0]);
-            numberOfPlayer = Integer.parseInt(args[0]);
+        //get player amount from arguments if possible
+        while (numberOfPlayer==0) {
+            try {
+                if (args.length > 0 && args[0] != null) {
+                    println("Arguments provided value: " + args[0]);
+                    numberOfPlayer = Integer.parseInt(args[0]);
+                } else {
+                    println("Enter number of players:");
+                    numberOfPlayer = Input.nextInt();
+                    Input.nextLine();
+                }
+            }
+            catch (NumberFormatException e){
+                println("NumberFormatException: That was not a valid number");
+            }
         }
-        else {numberOfPlayer = Input.nextInt();
-        Input.nextLine();
-        }
+        
         generatePack(numberOfPlayer);
         int argIndex = 1;
         while (!validPack) {
             Optional<int[]> tempPack;
             if (argIndex<args.length){
-                println("Provided file location: "+args[argIndex]);
+                println("Arguments provided file location: "+args[argIndex]);
                 tempPack = readAndValidatePack(numberOfPlayer*8,args[argIndex]);
                 argIndex++;
             }
