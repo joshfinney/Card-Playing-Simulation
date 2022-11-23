@@ -121,7 +121,7 @@ public class Main {
 
             if (lines != entries) {
                 // Not enough cards in file
-                println("Wrong number of cards, the pack requires " + entries + " cards to start.");
+                println("Wrong number of cards, the pack requires " + entries + " cards to start. The input pack has " + lines + " cards. ");
                 return Optional.empty();
             }
 

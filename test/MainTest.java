@@ -93,11 +93,9 @@ class MainTest {
         Random rand = new Random();
         int numberOfPlayers = rand.nextInt(10)+2;
         ArrayList<Integer> pack = new ArrayList<>();
-        int rowCount = rand.nextInt(10);
-
-        while (pack.size() < rowCount) {
+        while (pack.size() < (numberOfPlayers * 8)) {
             for (int i = 1; i <= numberOfPlayers; i++) {
-                if (pack.size() == rowCount) {
+                if (pack.size() == (numberOfPlayers * 8)) {
                     break;
                 } else {
                     pack.add(i);
