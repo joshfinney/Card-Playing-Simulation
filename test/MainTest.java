@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Optional;
@@ -21,9 +22,35 @@ class MainTest {
     @org.junit.jupiter.api.Test
     @org.junit.jupiter.api.Timeout(1000)
     void gameplay() throws InterruptedException, IOException {
-        String[] args = {"3", "pack.txt"};
+        int players = new Random().nextInt(10)+2;
+        generatePack(players);
+        String[] args = {String.valueOf(players), "test/pack.txt"};
         Main.main(args);
     }
+
+    static void generatePack(int players) throws IOException {
+        ArrayList<Integer> pack = new ArrayList<>();
+
+        while (pack.size() < (players * 8)) {
+            for (int i = 1; i <= players; i++) {
+                if (pack.size() == (players * 8)) {
+                    break;
+                } else {
+                    pack.add(i);
+                }
+            }
+        }
+
+        Collections.shuffle(pack);
+        PrintWriter output = new PrintWriter("test/pack.txt");
+
+        for (Integer integer : pack) {
+            output.println(integer);
+        }
+
+        output.close();
+    }
+
 
     @org.junit.jupiter.api.Test
     void readAndValidatePack() throws FileNotFoundException {
@@ -116,5 +143,4 @@ class MainTest {
         System.out.println("Testing for multiple values in one line:");
         assertEquals(Optional.empty(),Main.readAndValidatePack(numberOfPlayers*8,"test/testMultiValuePack.txt"));
     }
-
 }

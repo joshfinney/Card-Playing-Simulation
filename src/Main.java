@@ -19,6 +19,7 @@ public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         Input = new Scanner(System.in);
         boolean validPack = false;
+        // generate directories outside of environment
         Path logsRoot = Paths.get("out/logs/");
         Files.createDirectories(logsRoot);
         ArrayList<Card> pack = new ArrayList<>();
@@ -32,7 +33,8 @@ public class Main {
         else {numberOfPlayer = Input.nextInt();
         Input.nextLine();
         }
-        generatePack(numberOfPlayer);
+        //testing purpose randomization
+        //generatePack(numberOfPlayer);
         int argIndex = 1;
         while (!validPack) {
             Optional<int[]> tempPack;
@@ -50,7 +52,7 @@ public class Main {
                         .collect(Collectors.toCollection(ArrayList::new));
             }
         }
-
+        //Player and Decks are numbered by positive integers starting at 1
         for (int i=1;i<=numberOfPlayer;i++){
             new Player(i);
             new Deck(i);
@@ -77,21 +79,21 @@ public class Main {
         // Start of game
         ExecutorService te = Executors.newCachedThreadPool();
         while (victorId==0){
+            // Call and wait for all players to execute one round of play
             te.invokeAll(Player.players);
             println("");
         }
         te.shutdown();
-        //await process finish
+        //await for processes to finish
         try {
             if (!te.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS)){
                 te.shutdownNow();
-                println("TIMEOUT");
+                println("FATAL ERROR TIMEOUT");
             }
         } catch (InterruptedException e) {
             println(e.getMessage());
         }
         Deck.printAll();
-        //All output writers should be closed.
     }
     public synchronized static void endGameCheck(int id) {
         if (victorId ==0){
@@ -153,31 +155,6 @@ public class Main {
         return Optional.of(pack);
     }
 
-    // Used for testing purposes
-    static void generatePack(int players) throws IOException {
-        ArrayList<Integer> pack = new ArrayList<>();
-
-        while (pack.size() < (players * 8)) {
-            for (int i = 1; i <= players; i++) {
-                if (pack.size() == (players * 8)) {
-                    break;
-                } else {
-                    pack.add(i);
-                }
-            }
-        }
-
-        Collections.shuffle(pack);
-        Path srcRoot = Paths.get("src/");
-        Files.createDirectories(srcRoot);
-        PrintWriter output = new PrintWriter("src/pack.txt");
-
-        for (Integer integer : pack) {
-            output.println(integer);
-        }
-
-        output.close();
-    }
 
     public static int getNumberOfPlayers() {
         return numberOfPlayer;
