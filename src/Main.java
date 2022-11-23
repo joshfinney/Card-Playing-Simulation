@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
 public class Main {
     static Scanner Input;
     static int numberOfPlayer;
-    static boolean gameEnded = false;
     static int victorId = 0;
 
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -96,7 +95,6 @@ public class Main {
     }
     public synchronized static void endGameCheck(int id) {
         if (victorId ==0){
-            gameEnded=true;
             victorId = id;
         }
     }
