@@ -131,7 +131,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MainTest">
+  <component name="RunManager" selected="JUnit.DeckTest.draw">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Card-Playing-Simulation" />
@@ -188,8 +188,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MainTest" />
         <item itemvalue="JUnit.DeckTest.draw" />
+        <item itemvalue="JUnit.MainTest" />
         <item itemvalue="JUnit.MainTest.readAndValidatePackNegativeTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.MainTest.gameplay" />
