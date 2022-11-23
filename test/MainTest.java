@@ -115,7 +115,8 @@ class MainTest {
             }
         }
         output.close();
-        assertEquals(Optional.empty(),Main.readAndValidatePack(numberOfPlayers*8,"testMultiValuePack.txt"));
+        System.out.println("Testing for multiple values in one line:");
+        assertEquals(Optional.empty(),Main.readAndValidatePack(numberOfPlayers*8,"test/testMultiValuePack.txt"));
     }
 
 }
