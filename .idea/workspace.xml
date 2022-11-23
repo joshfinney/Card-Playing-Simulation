@@ -10,7 +10,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fbea839-ba9e-4f62-b763-55123b6826e3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/test/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/MainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/logs/deck1_output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/logs/deck1_output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/logs/deck2_output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/logs/deck2_output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/logs/deck3_output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/logs/deck3_output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/logs/player3_output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/logs/player3_output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Deck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Card-Playing-Simulation/MainTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Card-Playing-Simulation/MainTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pack.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/pack.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/testMultiValuePack.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test/testMultiValuePack.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/testNegativePack.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test/testNegativePack.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/testWrongRowCountPack.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test/testWrongRowCountPack.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,8 +81,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -133,10 +145,20 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MainTest">
+  <component name="RunManager" selected="JUnit.DeckTest.draw">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Card-Playing-Simulation" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DeckTest.draw" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Card-Playing-Simulation" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DeckTest" />
+      <option name="METHOD_NAME" value="draw" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -161,16 +183,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainTest.main" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Card-Playing-Simulation" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MainTest" />
-      <option name="METHOD_NAME" value="main" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MainTest.readAndValidatePackNegativeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Card-Playing-Simulation" />
       <option name="PACKAGE_NAME" value="" />
@@ -183,18 +195,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.DeckTest.draw" />
       <item itemvalue="JUnit.MainTest.readAndValidatePackNegativeTest" />
       <item itemvalue="JUnit.MainTest.gameplay" />
-      <item itemvalue="JUnit.MainTest.main" />
       <item itemvalue="JUnit.MainTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DeckTest.draw" />
         <item itemvalue="JUnit.MainTest" />
         <item itemvalue="JUnit.MainTest.readAndValidatePackNegativeTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.MainTest.gameplay" />
-        <item itemvalue="JUnit.MainTest.main" />
       </list>
     </recent_temporary>
   </component>

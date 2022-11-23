@@ -9,14 +9,21 @@ public class Deck extends AbstractCardOwner {
         decks.add(this);
     }
 
+    // Adds a card to a target player's deck
     static void dealCard(Card dealtCard, int targetId){
         synchronized (decks.get(targetId)){
             decks.get(targetId).addCard(dealtCard);
         }
     }
+
+    Card drawTopCard(){
+        return cards.remove(0);
+    }
+
+    // Draws the top card of the player's deck
     static Card draw(int targetId){
         synchronized (decks.get(targetId)) {
-            return decks.get(targetId).drawRandomCard();
+            return decks.get(targetId).drawTopCard();
         }
     }
 
