@@ -12,7 +12,7 @@ class Player extends AbstractCardOwner implements Runnable {
     static ArrayList<Player> players = new ArrayList<>();
 
     Player(int playerId) throws FileNotFoundException {
-        super(playerId, "src/player" + (playerId) + "_output.txt");
+        super(playerId, "out/logs/player" + (playerId) + "_output.txt");
         this.next = ((id % Main.getNumberOfPlayers())+1);
         players.add(this);
         this.gameEnded = false;

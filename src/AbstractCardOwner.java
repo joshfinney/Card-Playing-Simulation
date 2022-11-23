@@ -11,8 +11,6 @@ public abstract class AbstractCardOwner {
         this.writePath = path;
         this.id=id;
         cards = new ArrayList<>();
-        File oldFile = new File(writePath);
-        oldFile.delete();
         File writeFile = new File(writePath);
         output = new PrintWriter(writeFile);
     }

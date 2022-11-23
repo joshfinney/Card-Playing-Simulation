@@ -28,13 +28,13 @@ public class Main {
         Input.nextLine();
         }
         generatePack(numberOfPlayer);
-        int i=1;
+        int argIndex = 1;
         while (!validPack) {
             Optional<int[]> tempPack;
-            if (i<args.length){
-                log("Provided file location: "+args[i]);
-                tempPack = readAndValidatePack(numberOfPlayer*8,args[i]);
-                i++;
+            if (argIndex<args.length){
+                log("Provided file location: "+args[argIndex]);
+                tempPack = readAndValidatePack(numberOfPlayer*8,args[argIndex]);
+                argIndex++;
             }
             else tempPack = readAndValidatePack(numberOfPlayer * 8, "");
             if (tempPack.isPresent()) {
@@ -45,20 +45,6 @@ public class Main {
                         .collect(Collectors.toCollection(ArrayList::new));
             }
         }
-        currentGame.gameplay(pack);
-    }
-
-    public synchronized static int endGame(int id) {
-        if (victorId ==0){
-            gameEnded=true;
-            victorId = id;
-        }
-        return victorId;
-    }
-
-    public void gameplay(ArrayList<Card> pack) throws FileNotFoundException {
-        // Initialise players and their decks
-        // Player and Deck Ids are positive nonzero integers
         for (int i=1;i<=numberOfPlayer;i++){
             new Player(i);
             new Deck(i);
@@ -87,6 +73,13 @@ public class Main {
         }
         Deck.printAll();
         //All output writers should be closed.
+    }
+    public synchronized static int endGame(int id) {
+        if (victorId ==0){
+            gameEnded=true;
+            victorId = id;
+        }
+        return victorId;
     }
 
     static Optional<int[]> readAndValidatePack(int entries, String location) throws FileNotFoundException {

@@ -5,7 +5,7 @@ public class Deck extends AbstractCardOwner {
     static ArrayList<Deck> decks = new ArrayList<>();
 
     Deck(int deckId) throws FileNotFoundException {
-        super(deckId, "src/deck"+deckId+"_output.txt");
+        super(deckId, "out/logs/deck"+deckId+"_output.txt");
         decks.add(this);
     }
 
