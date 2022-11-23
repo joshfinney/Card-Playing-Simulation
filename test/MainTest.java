@@ -9,6 +9,7 @@ class MainTest {
 
 
     @org.junit.jupiter.api.Test
+<<<<<<< Updated upstream
     void main() throws FileNotFoundException, InterruptedException {
         Main testInstance = new Main();
         Main.log("test started");
@@ -17,5 +18,10 @@ class MainTest {
                 .mapToObj(Card::new)
                 .collect(Collectors.toCollection(ArrayList::new));
         testInstance.gameplay(pack);
+=======
+    void main() throws IOException {
+        String[] args = {"3","pack.txt"};
+        Main.main(args);
+>>>>>>> Stashed changes
     }
 }

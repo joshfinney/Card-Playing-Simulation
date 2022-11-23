@@ -1,8 +1,9 @@
-<<<<<<< Updated upstream
-PLAYER 1: Draws a 3 from Deck 1
-=======
 Player 1 Alive on pool-1-thread-1
-Player 1 Initial Hand 1 1 2 3 
+Player 1 Initial Hand 1 3 3 3 
+Player 1 Draws a 3 from Deck 1
+Player 1 Discards a 3 to Deck 2
+Player 1 Draws a 3 from Deck 1
+Player 1 Discards a 3 to Deck 2
 Player 1 Draws a 1 from Deck 1
 Player 1 Discards a 3 to Deck 2
 Player 1 Draws a 2 from Deck 1
@@ -10,8 +11,11 @@ Player 1 Discards a 2 to Deck 2
 Player 1 Draws a 2 from Deck 1
 Player 1 Discards a 2 to Deck 2
 Player 1 Draws a 1 from Deck 1
+Player 1 Discards a 3 to Deck 2
+Player 1 Draws a 2 from Deck 1
 Player 1 Discards a 2 to Deck 2
+Player 1 Draws a 1 from Deck 1
+Player 1 Discards a 3 to Deck 2
 Player 1 has won the game
 Player 1 Has Exited
 Player 1 Final Hand 1 1 1 1 
->>>>>>> Stashed changes

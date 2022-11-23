@@ -82,6 +82,7 @@ class Player extends AbstractCardOwner implements Runnable {
     }
 
     public void run() {
+<<<<<<< Updated upstream
         synchronized (this) {
             String threadName = Thread.currentThread().getName();
             // logAction(" Alive on " + threadName);
@@ -96,6 +97,26 @@ class Player extends AbstractCardOwner implements Runnable {
             } else {
                 discard(drawnCard);
                 logAction(" Discards a " + drawnCard.getValue() + " to Deck " + targetDeck);
+=======
+        log("alive on "+Thread.currentThread().getName());
+        log("initial Hand "+readContents());
+        checkVictory();
+        while (!gameEnded){
+            try{
+                Card drawnCard = drawDeckCard();
+                log("draws a " + drawnCard.getValue() + " from Deck " + id);
+                cards.add(drawnCard);
+                if (drawnCard.getValue() == (id)) {
+                    Card unwantedCard = discardUnwantedAndGetCard();
+                    log("discards a " + unwantedCard.getValue() + " to Deck " + next);
+                } else {
+                    discard(drawnCard);
+                    log("discards a " + drawnCard.getValue() + " to Deck " + next);
+                }
+            }
+            catch (IndexOutOfBoundsException e){
+                log("ran out of cards to draw");
+>>>>>>> Stashed changes
             }
             checkVictory();
         }
