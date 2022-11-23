@@ -16,6 +16,10 @@ public abstract class AbstractCardOwner {
     }
     PrintWriter output;
 
+    Card drawTopCard(){
+        return cards.remove(0);
+    }
+
     Card drawRandomCard(){
         int randomIndex = (int) Math.floor(Math.random()*cards.size());
         return cards.remove(randomIndex);

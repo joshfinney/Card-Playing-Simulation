@@ -1,0 +1,18 @@
+Player 3 draws a 3 from Deck 3
+Player 3 discards a 1 to Deck 1
+Player 3 current hand is 3 2 2 3 
+Player 3 draws a 1 from Deck 3
+Player 3 discards a 1 to Deck 1
+Player 3 current hand is 3 2 2 3 
+Player 3 draws a 2 from Deck 3
+Player 3 discards a 2 to Deck 1
+Player 3 current hand is 3 2 2 3 
+Player 3 draws a 3 from Deck 3
+Player 3 discards a 2 to Deck 1
+Player 3 current hand is 3 2 3 3 
+Player 3 draws a 3 from Deck 3
+Player 3 discards a 2 to Deck 1
+Player 3 current hand is 3 3 3 3 
+Player 3 has been informed by 1 of its victory
+Player 3 has Exited
+Player 3 final Hand 3 3 3 3 
