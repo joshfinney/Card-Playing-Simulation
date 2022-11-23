@@ -78,20 +78,20 @@ class Player extends AbstractCardOwner implements Runnable {
 
 
     public void run() {
-        log("Alive on "+Thread.currentThread().getName());
-        log("Initial Hand "+readContents());
+        log("alive on "+Thread.currentThread().getName());
+        log("initial Hand "+readContents());
         checkVictory();
         while (!gameEnded){
             try{
                 Card drawnCard = drawDeckCard();
-                log("Draws a " + drawnCard.getValue() + " from Deck " + id);
+                log("draws a " + drawnCard.getValue() + " from Deck " + id);
                 cards.add(drawnCard);
                 if (drawnCard.getValue() == (id)) {
                     Card unwantedCard = discardUnwantedAndGetCard();
-                    log("Discards a " + unwantedCard.getValue() + " to Deck " + next);
+                    log("discards a " + unwantedCard.getValue() + " to Deck " + next);
                 } else {
                     discard(drawnCard);
-                    log("Discards a " + drawnCard.getValue() + " to Deck " + next);
+                    log("discards a " + drawnCard.getValue() + " to Deck " + next);
                 }
             }
             catch (IndexOutOfBoundsException e){
@@ -99,8 +99,8 @@ class Player extends AbstractCardOwner implements Runnable {
             }
             checkVictory();
         }
-        log("Has Exited");
-        log("Final Hand "+readContents());
+        log("has Exited");
+        log("final Hand "+readContents());
         output.close();
     }
 
