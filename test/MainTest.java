@@ -26,14 +26,14 @@ class MainTest {
     }
 
     @org.junit.jupiter.api.Test
-    void generatePack() throws FileNotFoundException {
-        generatePackWithNegativeNumbers();
-        generatePackWithWrongRowCount();
-        generatePackWithMultiValues();
+    void readAndValidatePack() throws FileNotFoundException {
+        readAndValidatePackWithNegativeNumbers();
+        readAndValidatePackWithWrongRowCount();
+        readAndValidatePackWithMultiValues();
     }
 
     // If the pack contains 1 or more negative values, readAndValidatePack should return an empty integer array
-    void generatePackWithNegativeNumbers() throws FileNotFoundException {
+    void readAndValidatePackWithNegativeNumbers() throws FileNotFoundException {
         Random rand = new Random();
         int numberOfPlayers = rand.nextInt(10)+2;
         ArrayList<Integer> pack = new ArrayList<>();
@@ -63,7 +63,7 @@ class MainTest {
     }
 
     // If the pack doesn't contain 8n (where n is the number of players) rows, readAndValidatePack should return an empty integer array
-    void generatePackWithWrongRowCount() throws FileNotFoundException {
+    void readAndValidatePackWithWrongRowCount() throws FileNotFoundException {
         Random rand = new Random();
         int numberOfPlayers = rand.nextInt(10)+2;
         ArrayList<Integer> pack = new ArrayList<>();
@@ -89,7 +89,7 @@ class MainTest {
     }
 
     // If the pack has multiple values in a row, readAndValidatePack should return an empty integer array
-    void generatePackWithMultiValues() throws FileNotFoundException {
+    void readAndValidatePackWithMultiValues() throws FileNotFoundException {
         Random rand = new Random();
         int numberOfPlayers = rand.nextInt(10)+2;
         ArrayList<Integer> pack = new ArrayList<>();
