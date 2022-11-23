@@ -1,21 +1,19 @@
 import java.io.FileNotFoundException;
 import java.util.*;
 import java.lang.Integer;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.Callable;
 
-class Player extends AbstractCardOwner implements Runnable {
+class Player extends AbstractCardOwner implements Callable<Boolean> {
     int next;
     boolean victory;
-    boolean gameEnded;
+    boolean firstTurn;
     static ArrayList<Player> players = new ArrayList<>();
 
     Player(int playerId) throws FileNotFoundException {
-        super(playerId, "out/logs/player" + (playerId) + "_output.txt");
+        super(playerId, "out/logs/player" + playerId + "_output.txt");
         this.next = ((id % Main.getNumberOfPlayers())+1);
         players.add(this);
-        this.gameEnded = false;
+        this.firstTurn = true;
     }
 
     static void dealCard(Card newCard, int index){
@@ -63,7 +61,7 @@ class Player extends AbstractCardOwner implements Runnable {
     }
 
     private void tryVictory() {
-        Main.endGame(id);
+        Main.endGameCheck(id);
     }
 
     private void getVictor() {
@@ -73,35 +71,40 @@ class Player extends AbstractCardOwner implements Runnable {
         } else if (victorId!=0) {
             log("has been informed by "+victorId+" of its victory");
         } else return;
-        gameEnded = true;
-    }
-
-
-    public void run() {
-        log("alive on "+Thread.currentThread().getName());
-        log("initial Hand "+readContents());
-        checkVictory();
-        while (!gameEnded){
-            try{
-                Card drawnCard = drawDeckCard();
-                log("draws a " + drawnCard.getValue() + " from Deck " + id);
-                cards.add(drawnCard);
-                if (drawnCard.getValue() == (id)) {
-                    Card unwantedCard = discardUnwantedAndGetCard();
-                    log("discards a " + unwantedCard.getValue() + " to Deck " + next);
-                } else {
-                    discard(drawnCard);
-                    log("discards a " + drawnCard.getValue() + " to Deck " + next);
-                }
-            }
-            catch (IndexOutOfBoundsException e){
-                log("ran out of cards to draw");
-            }
-            checkVictory();
-        }
         log("has Exited");
         log("final Hand "+readContents());
         output.close();
+    }
+
+    public void firstTurnAction(){
+        log("alive on "+Thread.currentThread().getName());
+        log("initial Hand "+readContents());
+        checkVictory();
+    }
+
+    // this return value does not matter, but it is required for the Callable Interface.
+    public Boolean call() {
+        if (firstTurn){
+            firstTurnAction();
+            firstTurn=false;
+        }
+        try{
+            Card drawnCard = drawDeckCard();
+            log("draws a " + drawnCard.getValue() + " from Deck " + id);
+            cards.add(drawnCard);
+            if (drawnCard.getValue() == (id)) {
+                Card unwantedCard = discardUnwantedAndGetCard();
+                log("discards a " + unwantedCard.getValue() + " to Deck " + next);
+            } else {
+                discard(drawnCard);
+                log("discards a " + drawnCard.getValue() + " to Deck " + next);
+            }
+        }
+        catch (IndexOutOfBoundsException e){
+            log("ran out of cards to draw");
+        }
+        checkVictory();
+        return true;
     }
 
     void log(String message){

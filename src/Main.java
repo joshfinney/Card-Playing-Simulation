@@ -14,11 +14,10 @@ public class Main {
     static boolean gameEnded = false;
     static int victorId = 0;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         Input = new Scanner(System.in);
         boolean validPack = false;
         ArrayList<Card> pack = new ArrayList<>();
-        Main currentGame = new Main();
         System.out.println("Enter number of players:");
         if (args.length>0 && args[0] != null) {
             log("Testing provided value: "+args[0]);
@@ -59,8 +58,8 @@ public class Main {
         }
         // Start of game
         ExecutorService te = Executors.newCachedThreadPool();
-        for (Player p: Player.players) {
-            te.execute(p);
+        while (victorId==0){
+            te.invokeAll(Player.players);
         }
         te.shutdown();
         //await process finish
@@ -74,7 +73,7 @@ public class Main {
         Deck.printAll();
         //All output writers should be closed.
     }
-    public synchronized static int endGame(int id) {
+    public synchronized static int endGameCheck(int id) {
         if (victorId ==0){
             gameEnded=true;
             victorId = id;
