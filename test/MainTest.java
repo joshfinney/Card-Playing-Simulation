@@ -29,6 +29,7 @@ class MainTest {
     void generatePack() throws FileNotFoundException {
         generatePackWithNegativeNumbers();
         generatePackWithWrongRowCount();
+        generatePackWithMultiValues();
     }
 
     // If the pack contains 1 or more negative values, readAndValidatePack should return an empty integer array
@@ -86,4 +87,35 @@ class MainTest {
         System.out.println("Testing for wrong card amount:");
         assertEquals(Optional.empty(),Main.readAndValidatePack(numberOfPlayers*8,"test/testWrongRowCountPack.txt"));
     }
+
+    // If the pack has multiple values in a row, readAndValidatePack should return an empty integer array
+    void generatePackWithMultiValues() throws FileNotFoundException {
+        Random rand = new Random();
+        int numberOfPlayers = rand.nextInt(10)+2;
+        ArrayList<Integer> pack = new ArrayList<>();
+        int rowCount = rand.nextInt(10);
+
+        while (pack.size() < rowCount) {
+            for (int i = 1; i <= numberOfPlayers; i++) {
+                if (pack.size() == rowCount) {
+                    break;
+                } else {
+                    pack.add(i);
+                }
+            }
+        }
+        Collections.shuffle(pack);
+        PrintWriter output = new PrintWriter("test/testMultiValuePack.txt");
+        for (Integer integer : pack) {
+            output.println(integer);
+            if (rand.nextInt(2) == 0) {
+                output.println(integer);
+            } else {
+                output.println(integer + " " + integer);
+            }
+        }
+        output.close();
+        assertEquals(Optional.empty(),Main.readAndValidatePack(numberOfPlayers*8,"testMultiValuePack.txt"));
+    }
+
 }
