@@ -31,7 +31,7 @@ public class DeckTest {
 
     // Checks if the withdrawal of cards from a deck is in the correct sequential order
     @org.junit.jupiter.api.Test
-    void draw() {
+    void testDraw() {
         int chosenDeck = rand.nextInt(numberOfPlayer-1)+1;
 
         String actualPackContents = Deck.decks.get(chosenDeck).readContents();
@@ -45,12 +45,13 @@ public class DeckTest {
         for (Card a : testingPack) {
             testingPackContents = testingPackContents.concat(a.getValue() + " ");
         }
-
+        System.out.println("generated content: "+testingPackContents);
+        System.out.println("original content: "+actualPackContents);
         assertEquals(actualPackContents, testingPackContents);
     }
 
     @org.junit.jupiter.api.Test
-    void printAll() {
+    void testPrintAll() {
 
     }
 }

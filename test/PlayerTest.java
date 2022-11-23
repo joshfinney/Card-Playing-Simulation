@@ -1,10 +1,8 @@
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
@@ -25,7 +23,7 @@ class PlayerTest {
     }
 
     @org.junit.jupiter.api.Test
-    void discardUnwantedAndGetCard() {
+    void testDiscardUnwantedAndGetCard() {
         testPlayer.addCard(new Card(1));
         testPlayer.addCard(new Card(2));
         testPlayer.addCard(new Card(3));
@@ -39,7 +37,7 @@ class PlayerTest {
     }
 
     @org.junit.jupiter.api.Test
-    void checkVictory() {
+    void testCheckVictory() {
         testPlayer.addCard(new Card(4));
         testPlayer.addCard(new Card(4));
         testPlayer.addCard(new Card(4));

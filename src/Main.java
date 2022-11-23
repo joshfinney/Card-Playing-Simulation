@@ -13,18 +13,9 @@ import java.util.stream.Collectors;
 
 public class Main {
     static Scanner Input;
-
     private static int numberOfPlayer = 0;
-    static void setPlayers(int players){
-        numberOfPlayer=players;
-    }
     private static int victorId = 0;
-    static int getVictorId() {
-        return victorId;
-    }
-    static void resetVictor() {
-        victorId=0;
-    }
+
 
     public static void main(String[] args) throws IOException, InterruptedException {
         Input = new Scanner(System.in);
@@ -207,5 +198,14 @@ public class Main {
     }
     public static void println(){
         System.out.println();
+    }
+    static void setPlayers(int players){
+        numberOfPlayer=players;
+    }
+    static int getVictorId() {
+        return victorId;
+    }
+    static void resetVictor() {
+        victorId=0;
     }
 }

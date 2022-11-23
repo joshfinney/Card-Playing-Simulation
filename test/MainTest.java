@@ -20,20 +20,20 @@ class MainTest {
     }
     @org.junit.jupiter.api.Test
     @org.junit.jupiter.api.Timeout(1000)
-    void main() throws InterruptedException, IOException {
+    void testMain() throws InterruptedException, IOException {
         String[] args = {"3", "pack.txt"};
         Main.main(args);
     }
 
     @org.junit.jupiter.api.Test
-    void readAndValidatePack() throws FileNotFoundException {
-        readAndValidatePackWithNegativeNumbers();
-        readAndValidatePackWithWrongRowCount();
-        readAndValidatePackWithMultiValues();
+    void testReadAndValidatePack() throws FileNotFoundException {
+        testReadAndValidatePackWithNegativeNumbers();
+        testReadAndValidatePackWithWrongRowCount();
+        testReadAndValidatePackWithMultiValues();
     }
 
     // If the pack contains 1 or more negative values, readAndValidatePack should return an empty integer array
-    void readAndValidatePackWithNegativeNumbers() throws FileNotFoundException {
+    void testReadAndValidatePackWithNegativeNumbers() throws FileNotFoundException {
         Random rand = new Random();
         int numberOfPlayers = rand.nextInt(10)+2;
         ArrayList<Integer> pack = new ArrayList<>();
@@ -63,7 +63,7 @@ class MainTest {
     }
 
     // If the pack doesn't contain 8n (where n is the number of players) rows, readAndValidatePack should return an empty integer array
-    void readAndValidatePackWithWrongRowCount() throws FileNotFoundException {
+    void testReadAndValidatePackWithWrongRowCount() throws FileNotFoundException {
         Random rand = new Random();
         int numberOfPlayers = rand.nextInt(10)+2;
         ArrayList<Integer> pack = new ArrayList<>();
@@ -89,7 +89,7 @@ class MainTest {
     }
 
     // If the pack has multiple values in a row, readAndValidatePack should return an empty integer array
-    void readAndValidatePackWithMultiValues() throws FileNotFoundException {
+    void testReadAndValidatePackWithMultiValues() throws FileNotFoundException {
         Random rand = new Random();
         int numberOfPlayers = rand.nextInt(10)+2;
         ArrayList<Integer> pack = new ArrayList<>();
