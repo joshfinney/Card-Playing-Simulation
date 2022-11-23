@@ -10,23 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fbea839-ba9e-4f62-b763-55123b6826e3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pack.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/testNegativePack.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/testWrongRowCountPack.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/Readme.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Card_Playing_Simulation_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Card_Playing_Simulation_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/logs/deck1_output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/logs/deck1_output.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/logs/deck2_output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/logs/deck2_output.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/logs/deck3_output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/logs/deck3_output.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/logs/player3_output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/logs/player3_output.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/pack.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Card-Playing-Simulation/pack.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/Card-Playing-Simulation/MainTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Card-Playing-Simulation/MainTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pack.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/pack.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/MainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/testNegativePack.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test/testNegativePack.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/testWrongRowCountPack.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test/testWrongRowCountPack.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

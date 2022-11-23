@@ -57,6 +57,7 @@ class MainTest {
         }
 
         output.close();
+        System.out.println("Testing for negative card values:");
         assertEquals(Optional.empty(),Main.readAndValidatePack(numberOfPlayers*8,"test/testNegativePack.txt"));
     }
 
@@ -82,6 +83,7 @@ class MainTest {
             output.println(integer);
         }
         output.close();
-        assertEquals(Optional.empty(),Main.readAndValidatePack(numberOfPlayers*8,"testWrongRowCountPack.txt"));
+        System.out.println("Testing for wrong card amount:");
+        assertEquals(Optional.empty(),Main.readAndValidatePack(numberOfPlayers*8,"test/testWrongRowCountPack.txt"));
     }
 }
