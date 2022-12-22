@@ -1,6 +1,6 @@
 
 # Multi-threaded Card Playing Simulation
-The game is played with a deck of cards, each numbered from 1 to 8, and is played by multiple players. The game consists of rounds, during which each player draws and plays a card from their hand or deck. The player with the highest card value wins the round and scores a point. The game ends when one player reaches a predetermined number of points.
+In this game, players and decks of cards are organized in a ring topology. Each player holds a hand of 4 cards and each deck contains a number of cards. The goal of the game is for a player to have 4 cards of the same value in their hand. If this is achieved at the start of the game, the player wins and the game ends. If the game is not won immediately, players take turns picking a card from the top of the deck to their left and discarding one to the bottom of the deck to their right. The game continues until a player declares that they have won by having 4 cards of the same value.
 
 ## 👨🏽‍🎓 Author
 - [@joshfinney](https://github.com/joshfinney)
